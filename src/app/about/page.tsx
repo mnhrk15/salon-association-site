@@ -4,7 +4,6 @@ import { PageHeader } from "@/components/common/PageHeader";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const corporateProfile = {
   "法人名": "一般社団法人AIビューティーサロン推進協会",

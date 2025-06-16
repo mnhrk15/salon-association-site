@@ -1,5 +1,4 @@
 import { PageHeader } from "@/components/common/PageHeader";
-import Link from "next/link";
 
 export default function TermsPage() {
     return (

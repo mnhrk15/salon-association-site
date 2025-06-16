@@ -1,10 +1,9 @@
-import { getPostData, getAllPostSlugs, PostData } from '@/lib/news';
+import { getPostData, getAllPostSlugs } from '@/lib/news';
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
 import { PageHeader } from "@/components/common/PageHeader";
 
 type Props = {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 };
 
 export async function generateStaticParams() {
