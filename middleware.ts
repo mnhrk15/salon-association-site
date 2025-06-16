@@ -9,25 +9,28 @@ export function middleware(req: NextRequest) {
   const basicAuth = req.headers.get('authorization');
   const url = req.nextUrl;
 
+  const user = process.env.BASIC_AUTH_USER;
+  const password = process.env.BASIC_AUTH_PASSWORD;
+
+  // 環境変数が設定されているか確認
+  if (!user || !password) {
+    console.error('ERROR: Basic Authentication credentials are not set in environment variables.');
+    // 環境変数が設定されていない場合は、500エラーを返す
+    return new NextResponse('Internal Server Error: Auth credentials not configured.', {
+      status: 500,
+    });
+  }
+
   if (basicAuth) {
     const authValue = basicAuth.split(' ')[1];
-    // base64でエンコードされた "user:password" をデコード
-    const [user, pwd] = atob(authValue).split(':');
+    const [decodedUser, decodedPwd] = atob(authValue).split(':');
 
-    // 本来は環境変数から取得する
-    const validUser = process.env.BASIC_AUTH_USER || 'admin';
-    const validPassword = process.env.BASIC_AUTH_PASSWORD || 'password123';
-
-    if (user === validUser && pwd === validPassword) {
+    if (decodedUser === user && decodedPwd === password) {
       return NextResponse.next();
     }
   }
 
-  // 認証情報を要求するレスポンスを返す
-  return new NextResponse('Authentication required.', {
-    status: 401,
-    headers: {
-      'WWW-Authenticate': 'Basic realm="Secure Area"',
-    },
-  });
+  // 認証に失敗した場合、要件定義に従いトップページへリダイレクトする
+  const homeUrl = new URL('/', req.url);
+  return NextResponse.redirect(homeUrl);
 } 

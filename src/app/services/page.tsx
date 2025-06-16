@@ -160,7 +160,7 @@ export default function ServicesPage() {
                 {services.map((service) => (
                     <div key={service.name} id={service.name.toLowerCase()}>
                         <section className="relative h-96 w-full">
-                             <Image src={service.imageUrl} alt={service.name} layout="fill" objectFit="cover" />
+                             <Image src={service.imageUrl} alt={service.name} fill className="object-cover" />
                              <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
                                 <h2 className="text-white text-5xl font-serif font-bold text-center">{service.title}</h2>
                              </div>

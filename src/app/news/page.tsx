@@ -11,10 +11,10 @@ function PostCard({ post }: { post: PostData }) {
                 <CardHeader className="p-0">
                     <div className="relative w-full h-52">
                         <Image
-                            src={post.image}
+                            src={post.coverImage || '/images/placeholder.png'}
                             alt={post.title}
-                            layout="fill"
-                            objectFit="cover"
+                            fill
+                            className="object-cover"
                         />
                     </div>
                 </CardHeader>
