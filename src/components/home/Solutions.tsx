@@ -5,26 +5,23 @@ import Image from "next/image";
 
 const solutions = [
   {
-    title: "AIによる集客の完全自動化",
-    description:
-      "最新のAI技術を駆使し、ターゲット顧客の特定からアプローチ、予約獲得までを自動化。あなたは施術に集中するだけで、新規顧客が自然と集まる仕組みを構築します。",
-    imageUrl: "https://images.unsplash.com/photo-1556742518-b82c73b8a1dc?q=80&w=2070&auto=format&fit=crop",
-    imageAlt: "AIによる集客自動化のイメージ",
+    title: "集客の自動化",
+    description: "AIがあなたのサロンに最適な顧客を自動で発見し、アプローチ。あなたは施術に集中するだけ。",
+    imageUrl: "/images/placeholder-600x400.png",
+    link: "/services#集客自動化"
   },
   {
-    title: "リピート率を最大化する顧客体験",
-    description:
-      "顧客データをAIが分析し、一人ひとりに最適化されたアフターフォローや再来店促進の提案を自動生成。顧客満足度を劇的に向上させ、生涯顧客を育成します。",
-    imageUrl: "https://images.unsplash.com/photo-1580477373188-297dc6944de3?q=80&w=2070&auto=format&fit=crop",
-    imageAlt: "リピート率向上のイメージ",
+    title: "リピート率の向上",
+    description: "顧客一人ひとりのデータを分析し、パーソナライズされたアプローチで、生涯顧客を育成します。",
+    imageUrl: "/images/placeholder-600x400.png",
+    link: "/services#リピート向上"
   },
   {
-    title: "データドリブンな採用戦略",
-    description:
-      "求める人材像を明確にし、AIが最適な候補者をリストアップ。採用プロセスを効率化し、ミスマッチを防ぎます。優秀なスタッフが、あなたのサロンの成長を加速させます。",
-    imageUrl: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
-    imageAlt: "採用強化のイメージ",
-  },
+    title: "採用の最適化",
+    description: "データに基づき、あなたのサロンに本当にマッチする人材を発掘。採用のミスマッチを防ぎます。",
+    imageUrl: "/images/placeholder-600x400.png",
+    link: "/services#採用強化"
+  }
 ];
 
 const cardVariants: Variants = {
@@ -101,7 +98,7 @@ export function Solutions() {
               <div className={index % 2 === 0 ? "order-2" : "order-1"}>
                 <Image
                   src={solution.imageUrl}
-                  alt={solution.imageAlt}
+                  alt={solution.title}
                   width={600}
                   height={400}
                   className="rounded-lg shadow-xl object-cover w-full h-full"

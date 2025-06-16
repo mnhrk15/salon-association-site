@@ -39,7 +39,7 @@ export default function NewsPage() {
             <PageHeader
                 title="お知らせ"
                 subtitle="協会からの最新情報をお届けします。"
-                imageUrl="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=2070&auto=format&fit=crop"
+                imageUrl="/images/placeholder-1920x600.png"
             />
              <section className="py-24 bg-background">
                 <div className="container mx-auto px-6">

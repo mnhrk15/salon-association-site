@@ -14,8 +14,9 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { sendEmail, contactFormSchema } from "./actions";
+import { sendEmail } from "./actions";
 import { toast } from "sonner";
+import { contactFormSchema } from "@/lib/schema";
 
 export function ContactForm() {
   const form = useForm<z.infer<typeof contactFormSchema>>({

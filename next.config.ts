@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // すべての画像をローカルで扱うため、remotePatternsは不要になりました。
 };
 
 export default nextConfig;

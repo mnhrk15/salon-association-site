@@ -1,7 +1,7 @@
 ---
 title: '第一回 AI活用セミナー開催のご案内'
 date: '2024-05-15'
-image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop'
+image: '/images/placeholder-1920x600.png'
 coverImage: "/images/placeholder-1920x600.png"
 excerpt: '「AI時代のサロン経営戦略」と題し、第一回目のオンラインセミナーを開催します。参加費は無料です。'
 ---
@@ -27,3 +27,12 @@ excerpt: '「AI時代のサロン経営戦略」と題し、第一回目のオ�
 皆様のご参加を心よりお待ちしております。
 
 [お申し込みはこちら](#) <!-- ダミーリンク --> 
+
+---
+title: '成功事例：AI活用でリピート率が150%向上したサロン'
+date: '2024-05-10'
+image: '/images/placeholder-1200x800.png'
+excerpt: '会員サロン様の成功事例をご紹介。AIによる顧客分析とパーソナライズDMで、驚異的なリピート率向上を実現しました。'
+---
+
+## 導入3ヶ月でこの効果。成功の秘訣とは？ 
