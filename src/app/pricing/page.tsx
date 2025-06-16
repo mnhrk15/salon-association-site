@@ -68,8 +68,8 @@ export default function PricingPage() {
             />
             
             <section className="py-24 bg-background">
-                <div className="container mx-auto px-6">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24 text-center">
+                <div className="container mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24 text-center">
                         {pricingPlans.map((plan) => (
                            <PricingCard key={plan.name} plan={plan} />
                         ))}
@@ -82,7 +82,7 @@ export default function PricingPage() {
                         transition={{ duration: 0.8 }}
                     >
                         <h2 className="text-center font-serif text-4xl font-bold mb-12">機能比較</h2>
-                        <Card>
+                        <Card className="overflow-x-auto">
                             <Table>
                                 <TableHeader>
                                     <TableRow>

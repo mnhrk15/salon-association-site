@@ -1,28 +1,19 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { useRef } from "react";
 
 export function FullWidthCta() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
-
   return (
     <section
-      ref={ref}
       className="relative py-20 md:py-32 bg-cover bg-center bg-fixed"
       style={{
         backgroundImage: "url(/images/placeholder-1920x800.png)",
       }}
     >
       <div className="absolute inset-0 bg-black/60" />
-      <div className="relative container mx-auto px-6 text-center text-white">
+      <div className="relative container mx-auto text-center text-white">
         <motion.h2
           className="font-serif text-4xl font-bold leading-tight md:text-5xl lg:text-6xl"
           initial={{ opacity: 0, y: 20 }}
@@ -50,7 +41,7 @@ export function FullWidthCta() {
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           className="mt-10"
         >
-          <Button asChild size="lg" className="font-bold text-lg py-7 px-8">
+          <Button asChild className="font-bold text-lg px-10 py-5 h-auto">
             <Link href="/contact">今すぐ相談する</Link>
           </Button>
         </motion.div>

@@ -120,9 +120,11 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={form.formState.isSubmitting}>
-            {form.formState.isSubmitting ? "送信中..." : "送信する"}
-        </Button>
+        <div className="flex justify-end">
+          <Button type="submit" disabled={form.formState.isSubmitting}>
+              {form.formState.isSubmitting ? "送信中..." : "送信する"}
+          </Button>
+        </div>
       </form>
     </Form>
   );

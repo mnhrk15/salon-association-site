@@ -59,7 +59,7 @@ const cardVariantsR: Variants = {
 export function Solutions() {
   return (
     <section className="py-24 bg-background">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -77,11 +77,11 @@ export function Solutions() {
           </p>
         </motion.div>
 
-        <div className="space-y-20">
+        <div className="space-y-16">
           {solutions.map((solution, index) => (
             <motion.div
               key={solution.title}
-              className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+              className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center"
               initial="offscreen"
               whileInView="onscreen"
               viewport={{ once: true, amount: 0.3 }}

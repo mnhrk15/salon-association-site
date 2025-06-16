@@ -46,7 +46,7 @@ export function PricingCard({ plan }: PricingCardProps) {
           <CardDescription>{plan.description}</CardDescription>
         </CardHeader>
         <CardContent className="flex-grow">
-          <p className="text-5xl font-bold mb-4">
+          <p className="text-4xl lg:text-5xl font-bold mb-4">
             {plan.price}
             <span className="text-lg font-normal">/月</span>
           </p>

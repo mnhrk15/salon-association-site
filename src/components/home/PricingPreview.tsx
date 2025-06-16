@@ -44,7 +44,7 @@ const pricingPlans: PricingPlan[] = [
 export function PricingPreview() {
   return (
     <section className="py-24 bg-background">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto">
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +60,7 @@ export function PricingPreview() {
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {pricingPlans.map((plan) => (
               <PricingCard key={plan.name} plan={plan} />
             ))}

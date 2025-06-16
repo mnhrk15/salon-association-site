@@ -18,7 +18,7 @@ export function PageHeader({ title, subtitle, imageUrl }: PageHeaderProps) {
       <div className="absolute inset-0 bg-black/60" />
       <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white p-6">
         <motion.h1
-          className="font-serif text-5xl font-bold"
+          className="font-serif text-4xl sm:text-5xl font-bold"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}

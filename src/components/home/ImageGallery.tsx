@@ -38,7 +38,7 @@ function ParallaxImage({ src }: { src: string }) {
 export function ImageGallery() {
   return (
     <section className="py-24 bg-gray-50 dark:bg-gray-900">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto">
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -54,7 +54,7 @@ export function ImageGallery() {
           </p>
         </motion.div>
         
-        <div className="columns-2 md:columns-3 gap-4">
+        <div className="columns-2 sm:columns-3 lg:columns-4 gap-4 sm:gap-6">
             {galleryImages.map((image, index) => (
                 <ParallaxImage key={index} src={image.src} />
             ))}

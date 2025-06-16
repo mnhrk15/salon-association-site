@@ -27,9 +27,9 @@ export function Hero() {
       <div className="absolute inset-0 bg-black/50" />
 
       {/* Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center text-center text-white">
+      <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center text-white">
         <motion.h1
-          className="font-serif text-5xl font-bold leading-tight md:text-7xl lg:text-8xl"
+          className="max-w-5xl font-serif text-4xl font-bold leading-tight sm:text-5xl md:text-7xl lg:text-8xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}

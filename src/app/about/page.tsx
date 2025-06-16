@@ -51,7 +51,7 @@ export default function AboutPage() {
             />
 
             <section className="py-24 bg-background">
-                <div className="container mx-auto px-6">
+                <div className="container mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -72,7 +72,7 @@ export default function AboutPage() {
             </section>
             
             <section className="py-24 bg-gray-50 dark:bg-gray-900">
-                <div className="container mx-auto px-6">
+                <div className="container mx-auto">
                     <motion.h2 
                         className="text-center font-serif text-4xl font-bold mb-12"
                         initial={{ opacity: 0, y: 20 }}
@@ -90,7 +90,7 @@ export default function AboutPage() {
                         transition={{ duration: 0.8 }}
                     >
                         {Object.entries(corporateProfile).map(([key, value]) => (
-                            <div key={key} className="flex flex-col md:flex-row border-b py-4">
+                            <div key={key} className="flex flex-col md:flex-row border-b py-4 md:border-b-0 mb-4 md:mb-0">
                                 <dt className="w-full md:w-1/4 font-semibold text-foreground">{key}</dt>
                                 <dd className="w-full md:w-3/4 text-muted-foreground">
                                     {Array.isArray(value) ? (
@@ -101,12 +101,13 @@ export default function AboutPage() {
                                 </dd>
                             </div>
                         ))}
+                        <div className="border-t mt-4 pt-4 md:hidden" />
                     </motion.div>
                 </div>
             </section>
 
             <section className="py-24 bg-background">
-                <div className="container mx-auto px-6">
+                <div className="container mx-auto">
                 <motion.h2 
                         className="text-center font-serif text-4xl font-bold mb-12"
                         initial={{ opacity: 0, y: 20 }}
@@ -116,7 +117,7 @@ export default function AboutPage() {
                     >
                         理事紹介
                     </motion.h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {boardMembers.map((member, index) => (
                              <motion.div
                                 key={member.name}

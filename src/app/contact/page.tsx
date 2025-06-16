@@ -10,7 +10,7 @@ export default function ContactPage() {
                 imageUrl="/images/placeholder-1920x600.png"
             />
             <section className="py-24 bg-background">
-                <div className="container mx-auto px-6 max-w-4xl">
+                <div className="container mx-auto max-w-4xl">
                     <ContactForm />
                 </div>
             </section>
