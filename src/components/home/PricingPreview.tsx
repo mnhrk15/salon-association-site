@@ -1,45 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { PricingCard, PricingPlan } from "../common/PricingCard";
-
-const pricingPlans: PricingPlan[] = [
-  {
-    name: "ライト",
-    price: "¥30,000",
-    description: "まずはAIの力を体験したい個人オーナー様向け",
-    features: ["集客自動化ツール(基本)", "SNS投稿テンプレート", "月1回のオンライン相談"],
-    cta: "プラン詳細へ",
-    href: "/pricing",
-  },
-  {
-    name: "プレミアム",
-    price: "¥100,000",
-    description: "本格的に経営改善を目指すサロン様向け",
-    features: [
-      "集客自動化ツール(フル機能)",
-      "AIによるリピート促進分析",
-      "採用サポート",
-      "週1回のオンライン相談",
-    ],
-    cta: "プラン詳細へ",
-    href: "/pricing",
-    isFeatured: true,
-  },
-  {
-    name: "ダイヤモンド",
-    price: "¥300,000",
-    description: "業界をリードする次世代サロンを目指す方向け",
-    features: [
-        "プレミアムプランの全機能",
-        "専属コンサルタントによる伴走",
-        "経営データAI分析レポート",
-        "無制限のオンライン相談",
-    ],
-    cta: "プラン詳細へ",
-    href: "/pricing",
-  },
-];
+import { PricingCard } from "../common/PricingCard";
+import { pricingPlans } from "@/lib/plans";
 
 export function PricingPreview() {
   return (
@@ -62,7 +25,7 @@ export function PricingPreview() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {pricingPlans.map((plan) => (
-              <PricingCard key={plan.name} plan={plan} />
+              <PricingCard key={plan.name} plan={{...plan, cta: "プラン詳細へ", href: "/pricing"}} />
             ))}
         </div>
       </div>

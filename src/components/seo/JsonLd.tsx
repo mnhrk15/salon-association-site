@@ -1,3 +1,5 @@
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+
 interface JsonLdProps {
   data: object;
 }
@@ -17,8 +19,8 @@ export function OrganizationJsonLd() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "一般社団法人AIビューティーサロン推進協会",
-    "url": "https://ai-beauty-salon-association.com",
-    "logo": "https://ai-beauty-salon-association.com/images/logo.png",
+    "url": siteUrl,
+    "logo": `${siteUrl}/images/logo.png`,
     "description": "AIの力で美容業界の未来を共創する。サロン経営の効率化、顧客満足度の向上、新たな価値創造を支援します。",
     "contactPoint": {
       "@type": "ContactPoint",
@@ -48,12 +50,12 @@ export function WebsiteJsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "AIビューティーサロン推進協会",
-    "url": "https://ai-beauty-salon-association.com",
+    "url": siteUrl,
     "description": "AIビューティーサロン推進協会の公式ウェブサイト。AI技術を活用した美容サロンの経営支援、集客自動化、リピート率向上、採用最適化サービスを提供。",
     "inLanguage": "ja-JP",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://ai-beauty-salon-association.com/search?q={search_term_string}",
+      "target": `${siteUrl}/search?q={search_term_string}`,
       "query-input": "required name=search_term_string"
     }
   };
@@ -76,7 +78,7 @@ export function ServiceJsonLd() {
     "areaServed": "Japan",
     "availableChannel": {
       "@type": "ServiceChannel",
-      "serviceUrl": "https://ai-beauty-salon-association.com/services"
+      "serviceUrl": `${siteUrl}/services`
     }
   };
 
@@ -119,7 +121,7 @@ export function ArticleJsonLd({
       "name": "一般社団法人AIビューティーサロン推進協会",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://ai-beauty-salon-association.com/images/logo.png"
+        "url": `${siteUrl}/images/logo.png`
       }
     },
     "mainEntityOfPage": {

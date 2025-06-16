@@ -13,16 +13,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-export type PricingPlan = {
-  name: string;
-  price: string;
-  description: string;
-  href: string;
-  cta: string;
-  features?: string[];
-  isFeatured?: boolean;
-};
+import { PricingPlan } from "@/lib/plans";
 
 type PricingCardProps = {
   plan: PricingPlan;

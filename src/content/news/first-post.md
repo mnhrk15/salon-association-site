@@ -1,7 +1,7 @@
 ---
 title: 'AI導入の第一歩：無料カウンセリングのご案内'
 date: '2024-05-20'
-image: '/images/placeholder-1200x800.png'
+coverImage: '/images/placeholder-1200x800.png'
 excerpt: 'AIをサロン経営にどう活かせば良いか分からない、そんなオーナー様のために無料カウンセリングを開始しました。'
 ---
 

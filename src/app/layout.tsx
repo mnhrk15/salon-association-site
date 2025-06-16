@@ -18,18 +18,21 @@ const notoSansJp = Noto_Sans_JP({
   weight: ["400", "700"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "AIビューティーサロン推進協会 | AIでサロン経営を革新",
   description: "AIビューティーサロン推進協会は、AI技術を活用して美容サロンの経営効率化、顧客満足度の向上、そして新たな価値創造を支援します。",
   keywords: ["AI", "美容サロン", "経営効率化", "集客自動化", "リピート率向上", "採用最適化"],
   openGraph: {
     title: "AIビューティーサロン推進協会 | AIでサロン経営を革新",
     description: "AIビューティーサロン推進協会は、AI技術を活用して美容サロンの経営効率化、顧客満足度の向上、そして新たな価値創造を支援します。",
-    url: "https://ai-beauty-salon-association.com",
+    url: "/",
     siteName: "AIビューティーサロン推進協会",
     images: [
       {
-        url: "https://ai-beauty-salon-association.com/images/og-image.png",
+        url: "/images/og-image.png",
         width: 1200,
         height: 630,
         alt: "AIビューティーサロン推進協会",
@@ -42,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AIビューティーサロン推進協会 | AIでサロン経営を革新",
     description: "AIビューティーサロン推進協会は、AI技術を活用して美容サロンの経営効率化、顧客満足度の向上、そして新たな価値創造を支援します。",
-    images: ["https://ai-beauty-salon-association.com/images/og-image.png"],
+    images: ["/images/og-image.png"],
   },
   robots: {
     index: true,

@@ -1,7 +1,6 @@
 ---
 title: '成功事例：AI活用でリピート率が150%向上したサロン'
 date: '2024-05-10'
-image: '/images/placeholder-1200x800.png'
 coverImage: '/images/placeholder-1200x800.png'
 excerpt: '会員サロン様の成功事例をご紹介。AIによる顧客分析とパーソナライズDMで、驚異的なリピート率向上を実現しました。'
 ---

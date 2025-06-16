@@ -1,7 +1,7 @@
 "use client";
 
 import { PageHeader } from "@/components/common/PageHeader";
-import { PricingCard, PricingPlan } from "@/components/common/PricingCard";
+import { PricingCard } from "@/components/common/PricingCard";
 import { Card } from "@/components/ui/card";
 import {
     Table,
@@ -13,49 +13,10 @@ import {
   } from "@/components/ui/table"
 import { motion } from "framer-motion";
 import { Check, Minus } from "lucide-react";
-
-const pricingPlans: PricingPlan[] = [
-  {
-    name: "ライト",
-    price: "¥30,000",
-    description: "まずはAIの力を体験したい個人オーナー様向け",
-    cta: "このプランで始める",
-    href: "/contact",
-    isFeatured: false,
-  },
-  {
-    name: "プレミアム",
-    price: "¥100,000",
-    description: "本格的に経営改善を目指すサロン様向け",
-    cta: "このプランで始める",
-    href: "/contact",
-    isFeatured: true,
-  },
-  {
-    name: "ダイヤモンド",
-    price: "¥300,000",
-    description: "業界をリードする次世代サロンを目指す方向け",
-    cta: "このプランで始める",
-    href: "/contact",
-    isFeatured: false,
-  },
-];
-
-const featureComparison = [
-    { feature: "AI集客自動化ツール", light: true, premium: true, diamond: true },
-    { feature: "SNS投稿テンプレート", light: true, premium: true, diamond: true },
-    { feature: "月1回のオンライン相談", light: true, premium: false, diamond: false },
-    { feature: "AIによるリピート促進分析", light: false, premium: true, diamond: true },
-    { feature: "採用サポート", light: false, premium: true, diamond: true },
-    { feature: "週1回のオンライン相談", light: false, premium: true, diamond: false },
-    { feature: "専属コンサルタントによる伴走", light: false, premium: false, diamond: true },
-    { feature: "経営データAI分析レポート", light: false, premium: false, diamond: true },
-    { feature: "無制限のオンライン相談", light: false, premium: false, diamond: true },
-]
+import { pricingPlans, featureComparison } from "@/lib/plans";
 
 const Checkmark = () => <Check className="text-green-500 mx-auto" />;
 const Dash = () => <Minus className="text-gray-400 mx-auto" />;
-
 
 export default function PricingPage() {
     return(

@@ -1,7 +1,6 @@
 ---
 title: '第一回 AI活用セミナー開催のご案内'
 date: '2024-05-15'
-image: '/images/placeholder-1920x600.png'
 coverImage: "/images/placeholder-1920x600.png"
 excerpt: '「AI時代のサロン経営戦略」と題し、第一回目のオンラインセミナーを開催します。参加費は無料です。'
 ---
