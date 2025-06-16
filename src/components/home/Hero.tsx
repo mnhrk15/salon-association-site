@@ -9,10 +9,6 @@ export function Hero() {
   return (
     <section className="relative h-[calc(100vh-4rem)] w-full overflow-hidden">
       {/* Background Image with Ken Burns Effect */}
-      {/* 
-        NOTE:
-        ここに背景画像を配置してください: /public/images/hero-background.jpg
-      */}
       <motion.div
         className="absolute inset-0"
         initial={{ scale: 1.1, opacity: 0.8 }}

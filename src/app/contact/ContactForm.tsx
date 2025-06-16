@@ -36,8 +36,11 @@ export function ContactForm() {
       toast.success("お問い合わせありがとうございます。内容を確認の上、折り返しご連絡いたします。");
       form.reset();
     } else {
-        // TODO: エラーの詳細を表示する
-      toast.error("メールの送信に失敗しました。時間をおいて再度お試しください。");
+      if (typeof result.error === 'string') {
+        toast.error(result.error);
+      } else {
+        toast.error("入力内容に誤りがあります。");
+      }
     }
   }
 

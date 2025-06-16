@@ -23,7 +23,7 @@ export function middleware(req: NextRequest) {
 
   if (basicAuth) {
     const authValue = basicAuth.split(' ')[1];
-    const [decodedUser, decodedPwd] = atob(authValue).split(':');
+    const [decodedUser, decodedPwd] = Buffer.from(authValue, 'base64').toString().split(':');
 
     if (decodedUser === user && decodedPwd === password) {
       return NextResponse.next();

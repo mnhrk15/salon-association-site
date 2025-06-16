@@ -22,7 +22,8 @@ export async function sendEmail(formData: z.infer<typeof contactFormSchema>) {
     });
     return { success: true, data };
   } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
     console.error(error);
-    return { success: false, error: 'メールの送信に失敗しました。' };
+    return { success: false, error: errorMessage };
   }
 } 

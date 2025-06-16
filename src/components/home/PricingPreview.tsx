@@ -1,19 +1,9 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { Check } from "lucide-react";
+import { PricingCard, PricingPlan } from "../common/PricingCard";
 
-const pricingPlans = [
+const pricingPlans: PricingPlan[] = [
   {
     name: "ライト",
     price: "¥30,000",
@@ -72,34 +62,7 @@ export function PricingPreview() {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {pricingPlans.map((plan) => (
-                <motion.div
-                    key={plan.name}
-                    whileHover={{ y: -8 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                >
-                    <Card className={`flex flex-col h-full ${plan.isFeatured ? 'border-primary border-2' : ''}`}>
-                        <CardHeader>
-                            <CardTitle>{plan.name}</CardTitle>
-                            <CardDescription>{plan.description}</CardDescription>
-                        </CardHeader>
-                        <CardContent className="flex-grow">
-                            <p className="text-4xl font-bold mb-4">{plan.price}<span className="text-sm font-normal">/月</span></p>
-                            <ul className="space-y-2">
-                                {plan.features.map((feature) => (
-                                    <li key={feature} className="flex items-center">
-                                        <Check className="h-4 w-4 text-green-500 mr-2" />
-                                        <span className="text-muted-foreground text-sm">{feature}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </CardContent>
-                        <CardFooter>
-                            <Button asChild className="w-full" variant={plan.isFeatured ? 'default' : 'outline'}>
-                                <Link href={plan.href}>{plan.cta}</Link>
-                            </Button>
-                        </CardFooter>
-                    </Card>
-                </motion.div>
+              <PricingCard key={plan.name} plan={plan} />
             ))}
         </div>
       </div>

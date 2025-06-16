@@ -11,7 +11,7 @@ function PostCard({ post }: { post: PostData }) {
                 <CardHeader className="p-0">
                     <div className="relative w-full h-52">
                         <Image
-                            src={post.coverImage || '/images/placeholder.png'}
+                            src={post.coverImage || '/images/placeholder-1920x600.png'}
                             alt={post.title}
                             fill
                             className="object-cover"
