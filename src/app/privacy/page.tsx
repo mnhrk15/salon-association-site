@@ -7,7 +7,7 @@ export default function PrivacyPolicyPage() {
             <PageHeader
                 title="プライバシーポリシー"
                 subtitle="当協会の個人情報保護方針について"
-                imageUrl="/images/placeholder-1920x600.png"
+                imageUrl="/images/page-header-1920x600.png"
             />
             <section className="py-24 bg-background">
                 <div className="container mx-auto px-6 max-w-4xl">

@@ -41,8 +41,8 @@ export default function FaqPage() {
     <div>
         <PageHeader
             title="よくある質問"
-            subtitle="サービスに関するご不明点は、まずはこちらをご確認ください。"
-            imageUrl="/images/placeholder-1920x600.png"
+            subtitle="サービスや協会に関する、よくあるご質問をまとめました。"
+            imageUrl="/images/page-header-1920x600.png"
         />
 
         <section className="py-24 bg-background">

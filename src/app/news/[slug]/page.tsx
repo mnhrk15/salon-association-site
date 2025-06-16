@@ -36,7 +36,7 @@ export default async function PostPage({ params }: Props) {
         <PageHeader 
             title={post.title}
             subtitle={`公開日: ${post.date}`}
-            imageUrl={post.coverImage || "/images/placeholder-1920x600.png"}
+            imageUrl={post.coverImage || "/images/page-header-1920x600.png"}
         />
       <div className="container mx-auto px-6 max-w-4xl py-24">
         <article className="prose dark:prose-invert max-w-none">

@@ -5,8 +5,8 @@ export default function TermsPage() {
         <div>
             <PageHeader
                 title="利用規約"
-                subtitle="当協会のサービス利用に関する規約"
-                imageUrl="/images/placeholder-1920x600.png"
+                subtitle="本サービスの利用に関する規約"
+                imageUrl="/images/page-header-1920x600.png"
             />
             <section className="py-24 bg-background">
                 <div className="container mx-auto px-6 max-w-4xl">

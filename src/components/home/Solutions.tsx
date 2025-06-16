@@ -5,21 +5,21 @@ import Image from "next/image";
 
 const solutions = [
   {
-    title: "集客の自動化",
-    description: "AIがあなたのサロンに最適な顧客を自動で発見し、アプローチ。あなたは施術に集中するだけ。",
-    imageUrl: "/images/placeholder-600x400.png",
+    title: "最新AI技術の活用",
+    description: "トレンドのAI技術を導入し、顧客満足度とリピート率を向上。",
+    imageUrl: "/images/feature-item-600x400.png",
     link: "/services#集客自動化"
   },
   {
-    title: "リピート率の向上",
-    description: "顧客一人ひとりのデータを分析し、パーソナライズされたアプローチで、生涯顧客を育成します。",
-    imageUrl: "/images/placeholder-600x400.png",
+    title: "データ駆動型経営",
+    description: "顧客データを分析し、パーソナライズされたサービスを提供。",
+    imageUrl: "/images/feature-item-600x400.png",
     link: "/services#リピート向上"
   },
   {
-    title: "採用の最適化",
-    description: "データに基づき、あなたのサロンに本当にマッチする人材を発掘。採用のミスマッチを防ぎます。",
-    imageUrl: "/images/placeholder-600x400.png",
+    title: "スタッフの生産性向上",
+    description: "単純作業を自動化し、スタッフが専門業務に集中できる環境を構築。",
+    imageUrl: "/images/feature-item-600x400.png",
     link: "/services#採用強化"
   }
 ];

@@ -23,8 +23,8 @@ export default function PricingPage() {
         <div>
             <PageHeader
                 title="料金プラン"
-                subtitle="あなたのサロンに最適なプランをお選びください"
-                imageUrl="/images/placeholder-1920x600.png"
+                subtitle="お客様のサロンの規模とニーズに合わせた、最適なプランをご提案します。"
+                imageUrl="/images/page-header-1920x600.png"
             />
             
             <section className="py-24 bg-background">

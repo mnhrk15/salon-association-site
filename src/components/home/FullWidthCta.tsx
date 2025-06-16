@@ -9,7 +9,7 @@ export function FullWidthCta() {
     <section
       className="relative py-20 md:py-32 bg-cover bg-center bg-fixed"
       style={{
-        backgroundImage: "url(/images/placeholder-1920x800.png)",
+        backgroundImage: "url(/images/cta-background-1920x800.png)",
       }}
     >
       <div className="absolute inset-0 bg-black/60" />

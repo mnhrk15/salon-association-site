@@ -45,8 +45,8 @@ export default function AboutPage() {
         <div>
             <PageHeader
                 title="協会について"
-                subtitle="私たちの理念と活動について"
-                imageUrl="/images/placeholder-1920x600.png"
+                subtitle="私たちの理念と活動内容をご紹介します。"
+                imageUrl="/images/page-header-1920x600.png"
             />
 
             <section className="py-24 bg-background">

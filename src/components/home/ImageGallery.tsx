@@ -4,11 +4,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 
-const galleryImages = [
-    { src: "/images/placeholder-800x600.png", alt: "ギャラリー画像1" },
-    { src: "/images/placeholder-800x600.png", alt: "ギャラリー画像2" },
-    { src: "/images/placeholder-800x600.png", alt: "ギャラリー画像3" },
-    { src: "/images/placeholder-800x600.png", alt: "ギャラリー画像4" },
+const images = [
+    { src: "/images/gallery-default-800x600.png", alt: "ギャラリー画像1" },
+    { src: "/images/gallery-default-800x600.png", alt: "ギャラリー画像2" },
+    { src: "/images/gallery-default-800x600.png", alt: "ギャラリー画像3" },
+    { src: "/images/gallery-default-800x600.png", alt: "ギャラリー画像4" },
   ];
 
 function ParallaxImage({ src }: { src: string }) {
@@ -55,7 +55,7 @@ export function ImageGallery() {
         </motion.div>
         
         <div className="columns-2 sm:columns-3 lg:columns-4 gap-4 sm:gap-6">
-            {galleryImages.map((image, index) => (
+            {images.map((image, index) => (
                 <ParallaxImage key={index} src={image.src} />
             ))}
         </div>
