@@ -85,19 +85,19 @@ export function Hero() {
         </motion.div>
 
         {/* Right: Image */}
-        <motion.div
+      <motion.div
           className="relative order-first h-[60vh] w-full lg:order-last lg:col-span-6 lg:h-[85vh]"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <Image
-            src="/images/hero-background.png"
-            alt="サロンの背景画像"
-            fill
-            className="object-cover"
-            priority
-          />
+      >
+        <Image
+          src="/images/hero-background.png"
+          alt="サロンの背景画像"
+          fill
+          className="object-cover"
+          priority
+        />
         </motion.div>
       </div>
     </section>

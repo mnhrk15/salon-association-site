@@ -49,7 +49,7 @@ export default function NewsPage() {
                         ))}
                     </div>
                 </div>
-            </section>
+             </section>
             <FullWidthCta />
         </div>
     );

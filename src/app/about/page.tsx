@@ -1,8 +1,6 @@
 "use client";
 
 import { PageHeader } from "@/components/common/PageHeader";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
 
 const corporateProfile = {
@@ -17,28 +15,6 @@ const corporateProfile = {
     "セミナー、イベントの企画・運営",
   ],
 };
-
-const boardMembers = [
-  {
-    name: "山田 太郎",
-    title: "代表理事",
-    imageUrl: "https://github.com/shadcn.png",
-    comment: "AIの力で、美容業界に新しい価値を創造します。共に未来を築きましょう。",
-  },
-  {
-    name: "鈴木 花子",
-    title: "理事",
-    imageUrl: "https://github.com/shadcn.png",
-    comment: "現場の声を大切にし、テクノロジーと美容の架け橋となることを目指します。",
-  },
-  {
-    name: "佐藤 次郎",
-    title: "理事",
-    imageUrl: "https://github.com/shadcn.png",
-    comment: "データに基づいた経営戦略で、サロンオーナーの皆様を強力にサポートします。",
-  },
-];
-
 
 export default function AboutPage() {
     return (
@@ -102,45 +78,6 @@ export default function AboutPage() {
                         ))}
                         <div className="border-t mt-4 pt-4 md:hidden" />
                     </motion.div>
-                </div>
-            </section>
-
-            <section className="py-24 bg-background">
-                <div className="container mx-auto">
-                <motion.h2 
-                        className="text-center font-serif text-4xl font-bold mb-12"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.5 }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        理事紹介
-                    </motion.h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {boardMembers.map((member, index) => (
-                             <motion.div
-                                key={member.name}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, amount: 0.2 }}
-                                transition={{ duration: 0.8, delay: index * 0.2 }}
-                            >
-                                <Card className="text-center h-full">
-                                    <CardHeader className="items-center">
-                                        <Avatar className="w-24 h-24 mb-4">
-                                            <AvatarImage src={member.imageUrl} alt={member.name}/>
-                                            <AvatarFallback>{member.name.slice(0, 2)}</AvatarFallback>
-                                        </Avatar>
-                                        <CardTitle>{member.name}</CardTitle>
-                                        <p className="text-sm text-muted-foreground">{member.title}</p>
-                                    </CardHeader>
-                                    <CardContent>
-                                        <p className="text-muted-foreground">{member.comment}</p>
-                                    </CardContent>
-                                </Card>
-                            </motion.div>
-                        ))}
-                    </div>
                 </div>
             </section>
         </div>

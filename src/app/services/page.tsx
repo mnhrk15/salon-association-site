@@ -1,8 +1,12 @@
 "use client";
 
 import { PageHeader } from "@/components/common/PageHeader";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import Image from "next/image";
+import { useState } from "react";
+import { AnimatedSection } from "@/components/common/AnimatedSection";
+import { cn } from "@/lib/utils";
+import { Check } from "lucide-react";
 
 // --- Type Definitions for Service Sections ---
 type TextImageSection = {
@@ -28,13 +32,15 @@ type BenefitsSection = {
 
 type ServiceSection = TextImageSection | FullImageSection | BenefitsSection;
 
+type Service = {
+  name: string;
+  title: string;
+  imageUrl: string;
+  sections: ServiceSection[];
+};
+
 // --- Data ---
-const services: {
-    name: string;
-    title: string;
-    imageUrl: string;
-    sections: ServiceSection[];
-}[] = [
+const services: Service[] = [
   {
     name: "集客自動化",
     title: "AIがあなたの代わりに、理想のお客様を集め続けます。",
@@ -135,79 +141,125 @@ const services: {
   },
 ];
 
-const Section = ({ children }: { children: React.ReactNode }) => (
+const ServiceDetail = ({ service }: { service: Service }) => {
+  const contentVariants: Variants = {
+    hidden: { opacity: 0, x: 20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
+  return (
     <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8 }}
-        className="mb-20 last:mb-0"
+      key={service.name}
+      variants={contentVariants}
+      initial="hidden"
+      animate="visible"
+      exit="hidden"
+      className="space-y-20"
     >
-        {children}
+      {service.sections.map((section, index) => (
+        <AnimatedSection key={index}>
+          {(() => {
+            switch (section.type) {
+              case 'text-image':
+                return (
+                  <div className={`grid items-center gap-12 md:grid-cols-2`}>
+                    <div className={cn("text-left", section.imageLeft && "md:order-last")}>
+                      <h3 className="font-serif text-3xl font-bold">
+                        {section.title}
+                      </h3>
+                      <p className="mt-4 leading-relaxed text-muted-foreground">
+                        {section.content}
+                      </p>
+                    </div>
+                    <div className="relative h-80 w-full">
+                      <Image src={section.imageUrl} alt={section.imageAlt} fill className="rounded-lg object-cover shadow-xl" />
+                    </div>
+                  </div>
+                );
+              case 'full-image':
+                return (
+                  <div className="relative mx-auto h-[500px] w-full max-w-5xl">
+                    <Image src={section.imageUrl} alt={section.imageAlt} fill className="rounded-lg object-cover shadow-xl" />
+                  </div>
+                );
+              case 'benefits':
+                return (
+                  <div className="rounded-lg bg-gray-50 p-12 dark:bg-gray-900">
+                    <h3 className="text-center font-serif text-3xl font-bold">
+                      {section.title}
+                    </h3>
+                    <div className="mt-10 grid gap-8 md:grid-cols-3">
+                      {section.items.map((item) => (
+                        <div key={item} className="flex items-start gap-4">
+                          <Check className="mt-1 h-6 w-6 flex-shrink-0 text-primary" />
+                          <p className="font-semibold">{item}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              default:
+                return null;
+            }
+          })()}
+        </AnimatedSection>
+      ))}
     </motion.div>
-)
+  );
+};
 
 export default function ServicesPage() {
-    return(
-        <div>
-            <PageHeader
-                title="サービス内容"
-                subtitle="AIの力で、あなたのサロンを次のステージへ。"
-                imageUrl="/images/page-header-1920x600.png"
-            />
-            
-            <div className="bg-background">
-                {services.map((service) => (
-                    <div key={service.name} id={service.name.toLowerCase()}>
-                        <section className="relative h-96 w-full">
-                             <Image src={service.imageUrl} alt={service.name} fill className="object-cover" />
-                             <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                                <h2 className="text-white text-5xl font-serif font-bold text-center">{service.title}</h2>
-                             </div>
-                        </section>
+  const [selectedService, setSelectedService] = useState<Service>(services[0]);
 
-                        <div className="py-24 container mx-auto px-6">
-                            {service.sections.map((section, index) => (
-                                <Section key={index}>
-                                    {(() => {
-                                        switch (section.type) {
-                                            case 'text-image':
-                                                return (
-                                                    <div className={`grid md:grid-cols-2 gap-12 items-center`}>
-                                                        <div className={section.imageLeft ? 'md:order-2' : ''}>
-                                                            <h3 className="text-3xl font-bold font-serif mb-4">{section.title}</h3>
-                                                            <p className="text-muted-foreground leading-relaxed">{section.content}</p>
-                                                        </div>
-                                                        <div>
-                                                            <Image src={section.imageUrl} alt={section.imageAlt} width={600} height={400} className="rounded-lg shadow-xl"/>
-                                                        </div>
-                                                    </div>
-                                                );
-                                            case 'full-image':
-                                                return <Image src={section.imageUrl} alt={section.imageAlt} width={1200} height={600} className="rounded-lg shadow-xl mx-auto"/>;
-                                            case 'benefits':
-                                                return (
-                                                    <div className="text-center">
-                                                        <h3 className="text-3xl font-bold font-serif mb-8">{section.title}</h3>
-                                                        <div className="grid md:grid-cols-3 gap-8">
-                                                            {section.items.map(item => (
-                                                                <div key={item} className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg">
-                                                                    <p className="font-semibold text-lg">{item}</p>
-                                                                </div>
-                                                            ))}
-                                                        </div>
-                                                    </div>
-                                                );
-                                            default:
-                                                return null;
-                                        }
-                                    })()}
-                                </Section>
-                            ))}
-                        </div>
-                    </div>
-                ))}
-            </div>
+  return (
+    <div>
+      <PageHeader
+        title="サービス内容"
+        subtitle="AIの力で、あなたのサロンを次のステージへ。"
+        imageUrl="/images/page-header-1920x600.png"
+      />
+      <div className="container mx-auto max-w-7xl px-4 py-16 sm:py-24">
+        <div className="grid lg:grid-cols-12 lg:gap-16">
+          <aside className="lg:col-span-3">
+            <nav className="sticky top-24 space-y-2">
+              <h3 className="font-serif text-2xl font-semibold">
+                提供サービス
+              </h3>
+              {services.map((service) => (
+                <button
+                  key={service.name}
+                  onClick={() => setSelectedService(service)}
+                  className={cn(
+                    "relative block w-full rounded-md p-3 text-left transition",
+                    selectedService.name === service.name
+                      ? "bg-gray-100 dark:bg-gray-800"
+                      : "hover:bg-gray-100/50 dark:hover:bg-gray-800/50"
+                  )}
+                >
+                  {selectedService.name === service.name && (
+                    <motion.div
+                      layoutId="active-service-indicator"
+                      className="absolute bottom-0 left-0 top-0 w-1 rounded-full bg-primary"
+                    />
+                  )}
+                  <span className="relative ml-4 font-semibold">
+                    {service.name}
+                  </span>
+                </button>
+              ))}
+            </nav>
+          </aside>
+          <main className="mt-12 lg:col-span-9 lg:mt-0">
+            <AnimatePresence mode="wait">
+              <ServiceDetail service={selectedService} />
+            </AnimatePresence>
+          </main>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
