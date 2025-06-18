@@ -1,105 +1,146 @@
 "use client";
 
 import { AnimatedSection } from "@/components/common/AnimatedSection";
-import { BarChart, Lightbulb, Users } from "lucide-react";
-import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { motion, Variants } from "framer-motion";
 
-const containerVariants: Variants = {
+const solutions = [
+  {
+    subTitle: "Choose Happiness",
+    title: "集客の自動化",
+    description:
+      "最新のAI技術を活用した広告運用やSNSマーケティングの自動化で、新規顧客の獲得を最大化します。",
+    imageUrl: "/images/feature-card-1200x600-1.png",
+    link: "/services#集客自動化",
+    label: "SERVICES",
+  },
+  {
+    subTitle: "Full of Happiness",
+    title: "リピート率の向上",
+    description:
+      "顧客データ分析に基づいたパーソナライズDMの自動送信や、最適な再来店タイミングの提案で、顧客をファンに変えます。",
+    imageUrl: "/images/feature-card-1200x600-2.png",
+    link: "/services#リピート向上",
+    label: "PACKAGE",
+  },
+  {
+    subTitle: "Create your Story",
+    title: "採用の最適化",
+    description:
+      "AIによる求人票の最適化と応募者スクリーニングで、ミスマッチを減らし、理想の⼈材獲得をサポートします。",
+    imageUrl: "/images/feature-card-1200x600-3.png",
+    link: "/services#採用強化",
+    label: "STYLYING",
+  },
+];
+
+const sectionVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.2, delayChildren: 0.1 },
+    transition: {
+      staggerChildren: 0.4,
+    },
   },
 };
 
 const itemVariants: Variants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: { y: 0, opacity: 1, transition: { duration: 0.6 } },
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
 };
 
-const solutions = [
-  {
-    title: "最新AI技術の活用",
-    description: "トレンドのAI技術を導入し、顧客満足度とリピート率を向上。",
-    imageUrl: "/images/feature-item-600x400.png",
-    link: "/services#集客自動化",
-    icon: BarChart
+const imageVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.8,
+      ease: [0.17, 0.67, 0.83, 0.67], // easeOutBack
+    },
   },
-  {
-    title: "データ駆動型経営",
-    description: "顧客データを分析し、パーソナライズされたサービスを提供。",
-    imageUrl: "/images/feature-item-600x400.png",
-    link: "/services#リピート向上",
-    icon: Lightbulb
-  },
-  {
-    title: "スタッフの生産性向上",
-    description: "単純作業を自動化し、スタッフが専門業務に集中できる環境を構築。",
-    imageUrl: "/images/feature-item-600x400.png",
-    link: "/services#採用強化",
-    icon: Users
-  }
-];
+};
 
 export function Solutions() {
   return (
-    <AnimatedSection className="py-16 sm:py-24 bg-gray-50 dark:bg-gray-900">
+    <AnimatedSection className="py-24 sm:py-32 overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl font-serif">
-            3つの解決策
-          </h2>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-            私たちは、AI技術を駆使してサロン経営の課題を包括的にサポートします。
-          </p>
-        </div>
         <motion.div
-          className="mt-16 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3"
-          variants={containerVariants}
+          className="space-y-20 sm:space-y-32"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
+          variants={sectionVariants}
         >
-          {solutions.map((solution) => (
+          {solutions.map((solution, index) => (
             <motion.div
               key={solution.title}
               variants={itemVariants}
-              className="flex flex-col overflow-hidden rounded-lg shadow-lg"
+              className={`relative flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16 ${
+                index % 2 === 1 ? "md:flex-row-reverse" : ""
+              }`}
             >
-              <div className="flex-shrink-0">
+              {/* Image */}
+              <motion.div className="w-full md:w-1/2 lg:w-3/5" variants={imageVariants}>
                 <Image
-                  className="h-48 w-full object-cover"
                   src={solution.imageUrl}
                   alt={solution.title}
-                  width={600}
-                  height={400}
+                  width={1200}
+                  height={600}
+                  className="rounded-lg object-cover shadow-xl"
                 />
-              </div>
-              <div className="flex flex-1 flex-col justify-between bg-white dark:bg-gray-800 p-6">
-                <div className="flex-1">
-                  <div className="flex items-center gap-3">
-                    <div className="bg-primary/10 dark:bg-primary/20 text-primary p-2 rounded-md">
-                      <solution.icon className="h-6 w-6" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                      {solution.title}
-                    </h3>
-                  </div>
-                  <p className="mt-3 text-base text-gray-500 dark:text-gray-400">
-                    {solution.description}
-                  </p>
-                </div>
-                <div className="mt-6">
+              </motion.div>
+
+              {/* Text Content */}
+              <motion.div 
+                className="w-full md:w-1/2 lg:w-2/5 flex-shrink-0"
+                variants={itemVariants}
+              >
+                <h3 className="font-serif text-2xl text-stone-500">
+                  {solution.subTitle}
+                </h3>
+                <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl font-serif">
+                  {solution.title}
+                </h2>
+                <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
+                  {solution.description}
+                </p>
+                <div className="mt-8">
                   <Link
                     href={solution.link}
-                    className="font-semibold text-primary hover:underline"
+                    className="inline-flex items-center font-semibold text-primary hover:text-primary/80 transition-colors"
                   >
-                    詳しく見る →
+                    Read more
+                    <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </div>
-              </div>
+              </motion.div>
+              
+              {/* Vertical Label */}
+              <motion.div
+                variants={itemVariants}
+                className={`hidden lg:block absolute top-1/2 -translate-y-1/2 ${
+                  index % 2 === 1
+                    ? "left-0 -translate-x-full"
+                    : "right-0 translate-x-full"
+                } `}
+              >
+                <p
+                  className="[writing-mode:vertical-rl] text-8xl font-serif text-stone-200 dark:text-stone-800 tracking-widest"
+                  style={{ textOrientation: "mixed" }}
+                >
+                  {solution.label}
+                </p>
+              </motion.div>
             </motion.div>
           ))}
         </motion.div>
