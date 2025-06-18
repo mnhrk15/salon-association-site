@@ -44,7 +44,7 @@ export function PricingCard({ plan }: PricingCardProps) {
         <CardContent className="flex-grow">
           <div className="flex items-baseline justify-center">
             <p className="text-4xl lg:text-5xl font-bold">
-              {plan.price}
+              {parseInt(plan.price).toLocaleString()}
             </p>
             {plan.priceAnnotation && (
               <span className="text-lg font-normal text-muted-foreground ml-1">{plan.priceAnnotation}</span>

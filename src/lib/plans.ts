@@ -14,7 +14,7 @@ export type PricingPlan = {
 export const pricingPlans: PricingPlan[] = [
   {
     name: "ライト会員",
-    price: "29,800",
+    price: "29800",
     priceAnnotation: "円/月",
     description: "集客の効率化を始めたい全てのサロン様へ",
     features: [
@@ -29,7 +29,7 @@ export const pricingPlans: PricingPlan[] = [
   },
   {
     name: "プレミアム会員",
-    price: "50,000",
+    price: "50000",
     priceAnnotation: "円/月",
     description: "集客からリピート・採用まで総合的に強化したいサロン様へ",
     features: [
@@ -45,7 +45,7 @@ export const pricingPlans: PricingPlan[] = [
   },
   {
     name: "ダイヤモンド会員",
-    price: "150,000",
+    price: "150000",
     priceAnnotation: "円/月",
     description: "コンサルティングで経営を加速させたい多店舗展開サロン様へ",
     features: [
@@ -60,7 +60,7 @@ export const pricingPlans: PricingPlan[] = [
   },
   {
     name: "賛助会員",
-    price: "9,800",
+    price: "9800",
     priceAnnotation: "円/月 (1口)",
     description: "個人として協会の活動を支援したい方へ",
     features: [

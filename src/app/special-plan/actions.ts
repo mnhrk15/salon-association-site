@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { AUTH_COOKIE_NAME, AUTH_PATH, SPECIAL_PLAN_PATH } from '@/lib/constants';
 
-const PASSWORD = process.env.SPECIAL_PLAN_PASSWORD ?? 'caa';
+const PASSWORD = process.env.SPECIAL_PLAN_PASSWORD ?? 'password';
 
 type State = {
   error?: string;

@@ -23,7 +23,7 @@ export default function SpecialPlanPage() {
                 subtitle="活動協力店舗様・サイバーアクセルご契約店舗様向けの特別なご案内です。"
                 imageUrl="/images/page-header-1920x600.png"
             />
-            <section className="py-24 bg-background">
+             <section className="py-24 bg-background">
                 <div className="container mx-auto max-w-4xl">
                     <h2 className="text-center font-serif text-3xl font-bold mb-12">会員プラン特別価格</h2>
                     <Card className="overflow-x-auto mb-12">
