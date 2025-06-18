@@ -11,7 +11,7 @@ const solutions = [
     subTitle: "Choose Happiness",
     title: "集客の自動化",
     description:
-      "最新のAI技術を活用した広告運用やSNSマーケティングの自動化で、新規顧客の獲得を最大化します。",
+      "集客自動化ツールを提供し、月間10時間かかっていた作業を1時間に短縮。ホットペッパービューティーを主軸に、サイバーアクセル・アドバイザーズ監修のノウハウで、作業時間を削減しつつ、成果を最大化します。",
     imageUrl: "/images/feature-card-1200x600-1.png",
     link: "/services#集客自動化",
     label: "SERVICES",
@@ -20,7 +20,7 @@ const solutions = [
     subTitle: "Full of Happiness",
     title: "リピート率の向上",
     description:
-      "顧客データ分析に基づいたパーソナライズDMの自動送信や、最適な再来店タイミングの提案で、顧客をファンに変えます。",
+      "生成AIと独自プログラムを組み合わせた最先端のリピート対策ツールを開発。カウンセリングや顧客データをAIが分析し、動画コンテンツと個別サポートで、持続的な顧客関係の構築とLifeTimeValueの向上を実現します。",
     imageUrl: "/images/feature-card-1200x600-2.png",
     link: "/services#リピート向上",
     label: "PACKAGE",
@@ -29,7 +29,7 @@ const solutions = [
     subTitle: "Create your Story",
     title: "採用の最適化",
     description:
-      "AIによる求人票の最適化と応募者スクリーニングで、ミスマッチを減らし、理想の⼈材獲得をサポートします。",
+      "生成AIを活用した求人ツールと従業員エンゲージメントツールを提供。求人成功事例から逆算した時短ツールと、スタッフの定着を促す仕組みで、「退職＜入社」が上回る強い組織作りをバックアップします。",
     imageUrl: "/images/feature-card-1200x600-3.png",
     link: "/services#採用強化",
     label: "STYLYING",
@@ -105,9 +105,6 @@ export function Solutions() {
                 className="w-full md:w-1/2 lg:w-2/5 flex-shrink-0"
                 variants={itemVariants}
               >
-                <h3 className="font-serif text-2xl text-stone-500">
-                  {solution.subTitle}
-                </h3>
                 <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl font-serif">
                   {solution.title}
                 </h2>
@@ -119,7 +116,7 @@ export function Solutions() {
                     href={solution.link}
                     className="inline-flex items-center font-semibold text-primary hover:text-primary/80 transition-colors"
                   >
-                    Read more
+                    詳しく見る
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </div>
@@ -138,7 +135,7 @@ export function Solutions() {
                   className="[writing-mode:vertical-rl] text-8xl font-serif text-stone-200 dark:text-stone-800 tracking-widest"
                   style={{ textOrientation: "mixed" }}
                 >
-                  {solution.label}
+                  ABPA
                 </p>
               </motion.div>
             </motion.div>

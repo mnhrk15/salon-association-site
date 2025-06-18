@@ -5,24 +5,27 @@ import { motion } from "framer-motion";
 
 const corporateProfile = {
   "法人名": "一般社団法人AIビューティーサロン推進協会",
-  "設立日": "2024年4月1日",
-  "所在地": "東京都渋谷区神宮前1-1-1",
-  "代表理事": "山田 太郎",
-  "事業内容": [
-    "AI技術を活用した美容サロンの経営支援",
-    "美容業界におけるDX推進",
-    "関連技術の研究開発および情報発信",
-    "セミナー、イベントの企画・運営",
+  "略称": "ABP / ABPA",
+  "設立日": "2025年6月3日（予定）",
+  "本社所在地": "東京都豊島区東池袋1-32-2 小泉ビル4F",
+  "目的": "理美容業界におけるAI技術とDXを駆使し、人口減少下でも一人ひとりのスタイリストが本業に集中できる環境を創出、美容師平均年収500万円以上を実現する社会を目指すこと。",
+  "主たる事業内容": [
+    "集客ツール・求人ツールの開発・提供・サポート",
+    "美容ポータルサイト・集客ツールの攻略講座",
+    "AIセミナー・勉強会の企画・運営",
+    "Webマーケティング（SEO／MEO対策、SNS広告運用、コンテンツ制作支援）",
+    "上記に附帯関連する一切の事業",
   ],
+  "事業年度": "毎年6月1日～翌年5月31日",
 };
 
 export default function AboutPage() {
     return (
         <div>
             <PageHeader
-                title="協会について"
+                title="協会概要"
                 subtitle="私たちの理念と活動内容をご紹介します。"
-                imageUrl="/images/page-header-1920x600.png"
+                imageUrl="/images/page-header-1920x600-2.png"
             />
 
             <section className="py-24 bg-background">
@@ -36,11 +39,9 @@ export default function AboutPage() {
                     >
                         <h2 className="font-serif text-4xl font-bold">私たちの使命</h2>
                         <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-                            私たちは、AIをはじめとする最先端テクノロジーと美容業界の知見を融合させ、
-                            サロン経営のあらゆる課題を解決することを使命としています。
-                            集客、リピート、採用、そして顧客体験の向上まで、
-                            データと感性を両立させた新しい形のビューティービジネスを提案し、
-                            業界全体の発展に貢献します。
+                            私たちは、理美容業界におけるAI技術とDXを推進し、深刻な人口減少とオーバーストア状態という構造的課題に立ち向かいます。
+                            スタイリスト一人ひとりが創造的な本業に集中できる環境を整え、
+                            「美容師の平均年収500万円以上」が当たり前となる社会を実現することが、私たちの使命です。
                         </p>
                     </motion.div>
                 </div>
@@ -64,19 +65,22 @@ export default function AboutPage() {
                         viewport={{ once: true, amount: 0.5 }}
                         transition={{ duration: 0.8 }}
                     >
-                        {Object.entries(corporateProfile).map(([key, value]) => (
-                            <div key={key} className="flex flex-col md:flex-row border-b py-4 md:border-b-0 mb-4 md:mb-0">
-                                <dt className="w-full md:w-1/4 font-semibold text-foreground">{key}</dt>
-                                <dd className="w-full md:w-3/4 text-muted-foreground">
-                                    {Array.isArray(value) ? (
-                                        <ul className="list-disc list-inside">
-                                            {value.map((item) => <li key={item}>{item}</li>)}
-                                        </ul>
-                                    ) : value}
-                                </dd>
-                            </div>
-                        ))}
-                        <div className="border-t mt-4 pt-4 md:hidden" />
+                        <table className="w-full text-left">
+                            <tbody>
+                                {Object.entries(corporateProfile).map(([key, value]) => (
+                                    <tr key={key} className="border-b dark:border-gray-700">
+                                        <th scope="row" className="py-4 pr-4 font-semibold text-foreground align-top w-1/4">{key}</th>
+                                        <td className="py-4 text-muted-foreground">
+                                            {Array.isArray(value) ? (
+                                                <ul className="list-disc list-inside space-y-1">
+                                                    {value.map((item) => <li key={item}>{item}</li>)}
+                                                </ul>
+                                            ) : value}
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
                     </motion.div>
                 </div>
             </section>

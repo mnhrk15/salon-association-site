@@ -47,11 +47,11 @@ export function Hero() {
           <div className="relative inline-block">
             <motion.p
               variants={verticalTextVariant}
-              className="absolute -left-12 top-1 hidden text-sm uppercase tracking-[0.2em] text-gray-400 [writing-mode:vertical-rl] lg:block"
+              className="absolute -left-12 top-1 hidden text-sm uppercase tracking-[0.5em] text-gray-400 [writing-mode:vertical-rl] lg:block"
             >
-              Cyber Accel Advisors
+              Ai Beauty Promotion Association
             </motion.p>
-            <h1 className="font-serif text-7xl font-medium leading-tight text-gray-800 dark:text-gray-100 lg:text-8xl">
+            <h1 className="font-serif text-8xl font-medium leading-tight text-gray-800 dark:text-gray-100 lg:text-9xl">
               <motion.span variants={itemVariants} className="block">
                 Achieve
               </motion.span>
@@ -70,7 +70,7 @@ export function Hero() {
           >
             <hr className="w-12 border-gray-400" />
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              HotPepperBeauty集客の費用対効果を変える。
+              AIとDXの力で、スタイリストが本業に集中できる環境を創出
             </p>
           </motion.div>
 

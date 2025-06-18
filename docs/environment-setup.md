@@ -5,12 +5,12 @@
 
 ## 必須環境変数
 
-### Basic認証設定
-special-planページのアクセス制御に使用されます。
+### 特別プラン認証設定
+`/special-plan` ページのアクセス制御に使用されるパスワードです。
 
 ```env
-BASIC_AUTH_USER=your_username_here
-BASIC_AUTH_PASSWORD=your_password_here
+# 本番環境では必ず強固なパスワードに変更してください。
+SPECIAL_PLAN_PASSWORD=your_password_here
 ```
 
 ### メール送信設定

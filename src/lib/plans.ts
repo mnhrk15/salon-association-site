@@ -2,6 +2,7 @@
 export type PricingPlan = {
   name: string;
   price: string;
+  priceAnnotation?: string; // "月額" などの注釈
   description: string;
   href: string;
   cta: string;
@@ -12,61 +13,63 @@ export type PricingPlan = {
 // サイト全体で使用する料金プランのデータ
 export const pricingPlans: PricingPlan[] = [
   {
-    name: "ライト",
-    price: "¥30,000",
-    description: "まずはAIの力を体験したい個人オーナー様向け",
+    name: "ライト会員",
+    price: "29,800",
+    priceAnnotation: "円/月",
+    description: "集客の効率化を始めたい全てのサロン様へ",
     features: [
-      "AI集客自動化ツール",
-      "SNS投稿テンプレート",
-      "月1回のオンライン相談",
+      "集客自動化ツールは全て提供",
+      "ホットペッパー攻略講座",
+      "Googleマップ対策講座",
+      "LINEトークサポート（電話対応なし）",
     ],
     cta: "このプランで始める",
-    href: "/contact",
+    href: "/contact?plan=light",
     isFeatured: false,
   },
   {
-    name: "プレミアム",
-    price: "¥100,000",
-    description: "本格的に経営改善を目指すサロン様向け",
+    name: "プレミアム会員",
+    price: "50,000",
+    priceAnnotation: "円/月",
+    description: "集客からリピート・採用まで総合的に強化したいサロン様へ",
     features: [
-      "AI集客自動化ツール",
-      "SNS投稿テンプレート",
-      "AIによるリピート促進分析",
-      "採用サポート",
-      "週1回のオンライン相談",
+      "ライト会員内容すべて",
+      "勝てるヘアスタイル提供",
+      "リピート対策ツール",
+      "求人対策攻略講座、各種ツール",
+      "LINEトークサポート（電話対応なし）",
     ],
     cta: "このプランで始める",
-    href: "/contact",
+    href: "/contact?plan=premium",
     isFeatured: true,
   },
   {
-    name: "ダイヤモンド",
-    price: "¥300,000",
-    description: "業界をリードする次世代サロンを目指す方向け",
+    name: "ダイヤモンド会員",
+    price: "150,000",
+    priceAnnotation: "円/月",
+    description: "コンサルティングで経営を加速させたい多店舗展開サロン様へ",
     features: [
-      "AI集客自動化ツール",
-      "SNS投稿テンプレート",
-      "AIによるリピート促進分析",
-      "採用サポート",
-      "専属コンサルタントによる伴走",
-      "経営データAI分析レポート",
-      "無制限のオンライン相談",
+      "プレミアム会員内容すべて",
+      "月1回面談サポート（集客／リピート/求人顧問）",
+      "オリジナル勉強会開催権(年4回まで)",
+      "AIツール開発相談（※多店舗のみ受付可能）",
     ],
     cta: "このプランで始める",
-    href: "/contact",
+    href: "/contact?plan=diamond",
     isFeatured: false,
   },
-];
-
-// 機能比較表のデータ
-export const featureComparison = [
-  { feature: "AI集客自動化ツール", light: true, premium: true, diamond: true },
-  { feature: "SNS投稿テンプレート", light: true, premium: true, diamond: true },
-  { feature: "月1回のオンライン相談", light: true, premium: false, diamond: false },
-  { feature: "AIによるリピート促進分析", light: false, premium: true, diamond: true },
-  { feature: "採用サポート", light: false, premium: true, diamond: true },
-  { feature: "週1回のオンライン相談", light: false, premium: true, diamond: false },
-  { feature: "専属コンサルタントによる伴走", light: false, premium: false, diamond: true },
-  { feature: "経営データAI分析レポート", light: false, premium: false, diamond: true },
-  { feature: "無制限のオンライン相談", light: false, premium: false, diamond: true },
+  {
+    name: "賛助会員",
+    price: "9,800",
+    priceAnnotation: "円/月 (1口)",
+    description: "個人として協会の活動を支援したい方へ",
+    features: [
+      "シークレット特典あり",
+      "協会の活動支援",
+      "クラウドファンディングイメージ",
+    ],
+    cta: "活動を支援する",
+    href: "/contact?plan=supporter",
+    isFeatured: false,
+  },
 ]; 

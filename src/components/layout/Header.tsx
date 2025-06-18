@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 
 const NAV_LINKS = [
   { href: "/", label: "トップ" },
-  { href: "/about", label: "協会について" },
+  { href: "/about", label: "協会概要" },
   { href: "/services", label: "サービス内容" },
   { href: "/pricing", label: "料金プラン" },
   { href: "/news", label: "お知らせ" },

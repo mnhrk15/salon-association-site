@@ -6,12 +6,12 @@ test.describe('Basic Navigation', () => {
     await page.goto('/');
     
     // Find the link within the header (banner role) and click it.
-    await page.getByRole('banner').getByRole('link', { name: '協会について' }).click();
+    await page.getByRole('banner').getByRole('link', { name: '協会概要' }).click();
     
     // The new URL should be "/about"
     await expect(page).toHaveURL('/about');
     
-    // The new page should contain an h1 with "協会について"
-    await expect(page.getByRole('heading', { name: '協会について' })).toBeVisible();
+    // The new page should contain an h1 with "協会概要"
+    await expect(page.getByRole('heading', { name: '協会概要' })).toBeVisible();
   });
 });

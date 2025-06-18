@@ -33,16 +33,25 @@ export function PricingCard({ plan }: PricingCardProps) {
         )}
       >
         <CardHeader>
-          <CardTitle className="font-serif">{plan.name}</CardTitle>
+          <CardTitle className="font-serif flex items-center justify-between">
+            <span>{plan.name}</span>
+            {plan.isFeatured && (
+              <span className="sr-only">(おすすめプラン)</span>
+            )}
+          </CardTitle>
           <CardDescription>{plan.description}</CardDescription>
         </CardHeader>
         <CardContent className="flex-grow">
-          <p className="text-4xl lg:text-5xl font-bold mb-4">
-            {plan.price}
-            <span className="text-lg font-normal">/月</span>
-          </p>
+          <div className="flex items-baseline justify-center">
+            <p className="text-4xl lg:text-5xl font-bold">
+              {plan.price}
+            </p>
+            {plan.priceAnnotation && (
+              <span className="text-lg font-normal text-muted-foreground ml-1">{plan.priceAnnotation}</span>
+            )}
+          </div>
           {plan.features && (
-            <ul className="space-y-2 mt-6 text-left">
+            <ul className="space-y-3 mt-6 text-left">
               {plan.features.map((feature) => (
                 <li key={feature} className="flex items-center">
                   <Check className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
