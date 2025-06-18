@@ -13,7 +13,7 @@ export function FullWidthCta() {
       }}
     >
       <div className="absolute inset-0 bg-black/60" />
-      <div className="relative container mx-auto text-center text-white">
+      <div className="relative container mx-auto flex flex-col items-center text-center text-white">
         <motion.h2
           className="font-serif text-4xl font-bold leading-tight md:text-5xl lg:text-6xl"
           initial={{ opacity: 0, y: 20 }}

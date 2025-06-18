@@ -39,7 +39,7 @@ export function Hero() {
       <div className="container mx-auto grid grid-cols-1 items-center gap-y-12 px-4 py-16 lg:grid-cols-10 lg:gap-x-8">
         {/* Left: Text Content */}
         <motion.div
-          className="order-last text-center lg:order-first lg:col-span-4 lg:text-left"
+          className="order-last z-20 text-center lg:order-first lg:col-span-4 lg:text-left"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -86,7 +86,7 @@ export function Hero() {
 
         {/* Right: Image */}
       <motion.div
-          className="relative order-first h-[60vh] w-full lg:order-last lg:col-span-6 lg:h-[85vh]"
+          className="relative order-first z-10 h-[60vh] w-full lg:order-last lg:col-span-6 lg:h-[85vh]"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}

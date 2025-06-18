@@ -21,6 +21,13 @@ const itemVariants: Variants = {
 };
 
 export function PricingPreview() {
+  const mainPlans = pricingPlans.filter(
+    (plan) => plan.name !== "賛助会員"
+  );
+  const patronPlan = pricingPlans.find(
+    (plan) => plan.name === "賛助会員"
+  );
+
   return (
     <AnimatedSection className="py-16 sm:py-24 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
@@ -32,6 +39,7 @@ export function PricingPreview() {
             あなたのサロンの規模とニーズに合わせた、最適なプランをご提案します。
           </p>
         </div>
+        {/* Main 3 Plans */}
         <motion.div
           className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-8"
           variants={containerVariants}
@@ -39,10 +47,12 @@ export function PricingPreview() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
         >
-          {pricingPlans.map((plan) => (
+          {mainPlans.map((plan) => (
             <motion.div
               key={plan.name}
               variants={itemVariants}
+              whileHover={{ scale: 1.05, y: -8 }}
+              transition={{ duration: 0.3 }}
               className={`flex flex-col rounded-2xl p-8 shadow-xl ${
                 plan.isFeatured
                   ? "border-2 border-primary"
@@ -63,7 +73,7 @@ export function PricingPreview() {
                   /月
                 </span>
               </div>
-              <ul className="mt-8 space-y-3 text-sm leading-6 text-gray-600 dark:text-gray-400">
+              <ul className="mt-8 flex-grow space-y-3 text-sm leading-6 text-gray-600 dark:text-gray-400">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex gap-x-3">
                     <Check
@@ -84,6 +94,52 @@ export function PricingPreview() {
             </motion.div>
           ))}
         </motion.div>
+
+        {/* Patron Plan */}
+        {patronPlan && (
+          <div className="mt-12 flex justify-center">
+            <motion.div
+              variants={itemVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              whileHover={{ scale: 1.05, y: -8 }}
+              transition={{ duration: 0.3 }}
+              className="flex w-full max-w-md flex-col rounded-2xl p-8 shadow-xl 
+              border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800"
+            >
+              <h3 className="text-2xl font-semibold leading-8 text-gray-900 dark:text-white">
+                {patronPlan.name}
+              </h3>
+              <p className="mt-4 text-sm leading-6 text-gray-600 dark:text-gray-400">
+                {patronPlan.description}
+              </p>
+              <div className="mt-6 flex items-baseline gap-x-2">
+                <span className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  {patronPlan.price}
+                </span>
+                <span className="text-sm font-semibold leading-6 text-gray-600 dark:text-gray-400">
+                  /月
+                </span>
+              </div>
+              <ul className="mt-8 flex-grow space-y-3 text-sm leading-6 text-gray-600 dark:text-gray-400">
+                {patronPlan.features.map((feature) => (
+                  <li key={feature} className="flex gap-x-3">
+                    <Check
+                      className="h-6 w-5 flex-none text-primary"
+                      aria-hidden="true"
+                    />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <Button asChild className="mt-8" variant="outline">
+                <Link href={patronPlan.href}>{patronPlan.cta}</Link>
+              </Button>
+            </motion.div>
+          </div>
+        )}
+
         <motion.div
           variants={itemVariants}
           initial="hidden"

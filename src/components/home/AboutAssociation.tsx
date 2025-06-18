@@ -8,7 +8,7 @@ const containerVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.05,
       delayChildren: 0.1,
     },
   },
@@ -26,9 +26,11 @@ const itemVariants: Variants = {
   },
 };
 
+const title = "美容師の平均年収を、500万円以上へ";
+
 export function AboutAssociation() {
   return (
-    <AnimatedSection className="bg-stone-50 dark:bg-stone-900 py-24 sm:py-32">
+    <AnimatedSection className="bg-gray-50 dark:bg-gray-900 py-24 sm:py-32">
       <div className="container mx-auto px-4">
         <motion.div
           className="mx-auto max-w-2xl text-center"
@@ -45,9 +47,15 @@ export function AboutAssociation() {
           </motion.h2>
           <motion.p 
             className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl font-serif"
-            variants={itemVariants}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
           >
-            美容師の平均年収を、500万円以上へ
+            {title.split("").map((char, index) => (
+              <motion.span key={index} variants={itemVariants}>
+                {char}
+              </motion.span>
+            ))}
           </motion.p>
           <motion.p 
             className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400"
