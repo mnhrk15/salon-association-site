@@ -47,12 +47,12 @@
 
 | 用途 | HEXコード (参考) | Tailwind変数 |
 | --- | --- | --- |
-| **Background** | `#FFFFFF` | `background` |
-| **Foreground** | `#111827` (Gray-900) | `foreground` |
-| **Primary** | `#111827` (Gray-900) | `primary` |
+| **Background** | `#FAF9F7` (Light Beige) | `background` |
+| **Foreground** | `#09090B` (Near Black) | `foreground` |
+| **Primary** | `#E56B8B` (Pink) | `primary` |
 | **Primary Fg** | `#FFFFFF` | `primary-foreground` |
-| **Accent** | `#FCE7F3` (Pink-100) | `accent` |
-| **Muted** | `#6B7280` (Gray-500) | `muted-foreground` |
+| **Accent** | `#FDEFF4` (Lighter Pink) | `accent` |
+| **Muted** | `#71717A` (Gray-500) | `muted-foreground` |
 
 ### **3-2. タイポグラフィ**
 
