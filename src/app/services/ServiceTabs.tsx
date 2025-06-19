@@ -7,37 +7,7 @@ import { AnimatedSection } from "@/components/common/AnimatedSection";
 import { cn } from "@/lib/utils";
 import { Check } from "lucide-react";
 import { useSearchParams } from 'next/navigation'
-
-// --- Type Definitions ---
-type TextImageSection = {
-  type: 'text-image';
-  title: string;
-  content: string;
-  imageUrl: string;
-  imageAlt: string;
-  imageLeft?: boolean;
-};
-
-type FullImageSection = {
-    type: 'full-image';
-    imageUrl: string;
-    imageAlt: string;
-};
-
-type BenefitsSection = {
-    type: 'benefits';
-    title: string;
-    items: string[];
-};
-
-type ServiceSection = TextImageSection | FullImageSection | BenefitsSection;
-
-export type Service = {
-  id: string;
-  name: string;
-  title: string;
-  sections: ServiceSection[];
-};
+import type { Service } from "@/lib/data/services-data";
 
 // --- Child Components ---
 
