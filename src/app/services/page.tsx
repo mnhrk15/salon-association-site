@@ -36,7 +36,6 @@ type Service = {
   id: string;
   name: string;
   title: string;
-  imageUrl: string;
   sections: ServiceSection[];
 };
 
@@ -46,7 +45,6 @@ const services: Service[] = [
     id: "集客支援",
     name: "集客支援",
     title: "集客の自動化と最適化で、理想のお客様を呼び込む",
-    imageUrl: "/images/feature-section-1920x400-1.png",
     sections: [
       {
         type: 'text-image',
@@ -79,7 +77,6 @@ const services: Service[] = [
     id: "リピート-ltv向上",
     name: "リピート・LTV向上",
     title: "顧客との絆を深め、生涯価値を最大化する",
-    imageUrl: "/images/feature-section-1920x400-2.png",
     sections: [
         {
             type: 'text-image',
@@ -112,7 +109,6 @@ const services: Service[] = [
     id: "採用-組織力強化",
     name: "採用・組織力強化",
     title: "「辞めない組織」をつくり、事業成長を加速させる",
-    imageUrl: "/images/page-header-1920x600.png",
     sections: [
         {
             type: 'text-image',
@@ -125,7 +121,7 @@ const services: Service[] = [
             type: 'text-image',
             title: "AIが採用と定着を科学する",
             content: "生成AIを活用した求人票作成ツールで、魅力的な募集要項を瞬時に作成。さらに、従業員エンゲージメントツールで、スタッフ一人ひとりの満足度やモチベーションを可視化。問題が深刻化する前に、的確な対策を打つことが可能になります。",
-            imageUrl: "/images/gallery-default-800x600.png",
+            imageUrl: "/images/feature-item-600x400.png",
             imageAlt: "エンゲージメントツールのダッシュボードイメージ",
             imageLeft: true,
         },

@@ -1,7 +1,7 @@
 ---
 title: 'お客様の声：AI導入で予約数が200%アップ！'
 date: '2024-05-10'
-coverImage: '/images/page-header-1920x600.png'
+coverImage: '/images/news-cover-default-1200x800.png'
 excerpt: '都内で人気のサロン「Lumina」様が、当協会のAIソリューションを導入後、わずか3ヶ月で予約数を2倍に伸ばした成功事例をご紹介します。'
 ---
 
