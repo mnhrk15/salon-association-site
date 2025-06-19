@@ -11,21 +11,21 @@ const solutions = [
     title: "集客の自動化",
     description:
       "集客自動化ツールを提供し、月間10時間かかっていた作業を1時間に短縮。ホットペッパービューティーを主軸に、サイバーアクセル・アドバイザーズ監修のノウハウで、作業時間を削減しつつ、成果を最大化します。",
-    imageUrl: "/images/feature-card-1200x600-1.png",
+    imageUrl: "/images/feature-card-1200x600.png",
     link: "/services#集客支援",
   },
   {
     title: "リピート率の向上",
     description:
       "生成AIと独自プログラムを組み合わせた最先端のリピート対策ツールを開発。カウンセリングや顧客データをAIが分析し、動画コンテンツと個別サポートで、持続的な顧客関係の構築とLifeTimeValueの向上を実現します。",
-    imageUrl: "/images/feature-card-1200x600-2.png",
+    imageUrl: "/images/feature-card-1200x600.png",
     link: "/services#リピート-ltv向上",
   },
   {
     title: "採用の最適化",
     description:
       "生成AIを活用した求人ツールと従業員エンゲージメントツールを提供。求人成功事例から逆算した時短ツールと、スタッフの定着を促す仕組みで、「退職＜入社」が上回る強い組織作りをバックアップします。",
-    imageUrl: "/images/feature-card-1200x600-3.png",
+    imageUrl: "/images/feature-card-1200x600.png",
     link: "/services#採用-組織力強化",
   },
 ];

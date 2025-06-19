@@ -1,10 +1,8 @@
-"use client";
-
 import { PageHeader } from "@/components/common/PageHeader";
 import { PricingCard } from "@/components/common/PricingCard";
-import { motion } from "framer-motion";
 import { pricingPlans } from "@/lib/plans";
 import { AlertTriangle } from "lucide-react";
+import { AnimatedSection } from "@/components/common/AnimatedSection";
 
 export default function PricingPage() {
     return(
@@ -23,11 +21,7 @@ export default function PricingPage() {
                         ))}
                     </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.2 }}
-                        transition={{ duration: 0.8 }}
+                    <AnimatedSection
                         className="max-w-4xl mx-auto"
                     >
                         <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-lg dark:bg-yellow-900/20 dark:border-yellow-500">
@@ -48,7 +42,7 @@ export default function PricingPage() {
                             </div>
                           </div>
                         </div>
-                    </motion.div>
+                    </AnimatedSection>
                 </div>
             </section>
         </>

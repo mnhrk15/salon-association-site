@@ -1,7 +1,5 @@
-"use client";
-
 import { PageHeader } from "@/components/common/PageHeader";
-import { motion } from "framer-motion";
+import { AnimatedSection } from "@/components/common/AnimatedSection";
 
 const corporateProfile = {
   "法人名": "一般社団法人AIビューティーサロン推進協会",
@@ -30,40 +28,29 @@ export default function AboutPage() {
 
             <section className="py-24 bg-background">
                 <div className="container mx-auto">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.5 }}
-                        transition={{ duration: 0.8 }}
-                        className="max-w-4xl mx-auto text-center"
-                    >
+                    <AnimatedSection className="max-w-4xl mx-auto text-center">
                         <h2 className="font-serif text-4xl font-bold">私たちの使命</h2>
                         <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
                             私たちは、理美容業界におけるAI技術とDXを推進し、深刻な人口減少とオーバーストア状態という構造的課題に立ち向かいます。
                             スタイリスト一人ひとりが創造的な本業に集中できる環境を整え、
                             「美容師の平均年収500万円以上」が当たり前となる社会を実現することが、私たちの使命です。
                         </p>
-                    </motion.div>
+                    </AnimatedSection>
                 </div>
             </section>
             
             <section className="py-24 bg-gray-50 dark:bg-gray-900">
                 <div className="container mx-auto">
-                    <motion.h2 
-                        className="text-center font-serif text-4xl font-bold mb-12"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.5 }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        法人概要
-                    </motion.h2>
-                    <motion.div 
+                    <AnimatedSection>
+                      <h2 
+                          className="text-center font-serif text-4xl font-bold mb-12"
+                      >
+                          法人概要
+                      </h2>
+                    </AnimatedSection>
+                    <AnimatedSection 
                         className="max-w-4xl mx-auto bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.5 }}
-                        transition={{ duration: 0.8 }}
+                        delay={0.2}
                     >
                         <table className="w-full text-left">
                             <tbody>
@@ -81,7 +68,7 @@ export default function AboutPage() {
                                 ))}
                             </tbody>
                         </table>
-                    </motion.div>
+                    </AnimatedSection>
                 </div>
             </section>
         </>

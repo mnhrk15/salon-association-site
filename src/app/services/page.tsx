@@ -1,45 +1,6 @@
-"use client";
-
 import { PageHeader } from "@/components/common/PageHeader";
-import { motion, AnimatePresence, Variants } from "framer-motion";
-import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
-import { AnimatedSection } from "@/components/common/AnimatedSection";
-import { cn } from "@/lib/utils";
-import { Check } from "lucide-react";
-// import type { Service } from "@/lib/plans";
-// import { services } from "@/lib/plans";
-
-// --- Type Definitions for Service Sections ---
-type TextImageSection = {
-  type: 'text-image';
-  title: string;
-  content: string;
-  imageUrl: string;
-  imageAlt: string;
-  imageLeft?: boolean;
-};
-
-type FullImageSection = {
-    type: 'full-image';
-    imageUrl: string;
-    imageAlt: string;
-};
-
-type BenefitsSection = {
-    type: 'benefits';
-    title: string;
-    items: string[];
-};
-
-type ServiceSection = TextImageSection | FullImageSection | BenefitsSection;
-
-type Service = {
-  id: string;
-  name: string;
-  title: string;
-  sections: ServiceSection[];
-};
+import { ServiceTabs, Service } from "./ServiceTabs";
+import { Suspense } from "react";
 
 // --- Data ---
 const services: Service[] = [
@@ -141,142 +102,17 @@ const services: Service[] = [
   },
 ];
 
-const ServiceDetail = ({ service }: { service: Service }) => {
-  const contentVariants: Variants = {
-    hidden: { opacity: 0, x: 20 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.5, ease: "easeOut" },
-    },
-  };
-
-  return (
-    <motion.div
-      key={service.name}
-      variants={contentVariants}
-      initial="hidden"
-      animate="visible"
-      exit="hidden"
-      className="space-y-20"
-    >
-      {service.sections.map((section, index) => (
-        <AnimatedSection key={index}>
-          {(() => {
-            switch (section.type) {
-              case 'text-image':
-                return (
-                  <div className={`grid items-center gap-12 md:grid-cols-2`}>
-                    <div className={cn("text-left", section.imageLeft && "md:order-last")}>
-                      <h3 className="font-serif text-3xl font-bold">
-                        {section.title}
-                      </h3>
-                      <p className="mt-4 leading-relaxed text-muted-foreground">
-                        {section.content}
-                      </p>
-                    </div>
-                    <div className="relative h-80 w-full">
-                      <Image src={section.imageUrl} alt={section.imageAlt} fill className="rounded-lg object-cover shadow-xl" />
-                    </div>
-                  </div>
-                );
-              case 'full-image':
-                return (
-                  <div className="relative mx-auto h-[500px] w-full max-w-5xl">
-                    <Image src={section.imageUrl} alt={section.imageAlt} fill className="rounded-lg object-cover shadow-xl" />
-                  </div>
-                );
-              case 'benefits':
-                return (
-                  <div className="rounded-lg bg-gray-50 p-12 dark:bg-gray-900">
-                    <h3 className="text-center font-serif text-3xl font-bold">
-                      {section.title}
-                    </h3>
-                    <div className="mt-10 grid gap-8 md:grid-cols-3">
-                      {section.items.map((item) => (
-                        <div key={item} className="flex items-start gap-4">
-                          <Check className="mt-1 h-6 w-6 flex-shrink-0 text-primary" />
-                          <p className="font-semibold">{item}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                );
-              default:
-                return null;
-            }
-          })()}
-        </AnimatedSection>
-      ))}
-    </motion.div>
-  );
-};
-
 export default function ServicesPage() {
-  const [selectedService, setSelectedService] = useState<Service>(services[0]);
-  const mainRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const hash = window.location.hash.substring(1);
-    if (hash) {
-      try {
-        const decodedHash = decodeURIComponent(hash);
-        const serviceFromHash = services.find((s) => s.id === decodedHash);
-        if (serviceFromHash) {
-          setSelectedService(serviceFromHash);
-          setTimeout(() => {
-            mainRef.current?.scrollIntoView({ behavior: "smooth" });
-          }, 100);
-        }
-      } catch (e) {
-        console.error("Failed to decode URI component: ", e);
-      }
-    }
-  }, []);
-
-  const handleServiceSelect = (service: Service) => {
-    setSelectedService(service);
-    window.history.pushState(null, "", `#${service.id}`);
-  };
-
-  return (
-    <>
-      <PageHeader
-        title="サービス内容"
-        description="貴社の課題に合わせた最適なソリューションを提供します。"
-        imageUrl="/images/page-header-1920x600.png"
-      />
-
-      <AnimatedSection className="py-24 sm:py-32">
-        <div className="container mx-auto grid max-w-7xl grid-cols-1 gap-12 lg:grid-cols-4">
-          <aside className="lg:col-span-1">
-            <nav className="sticky top-24">
-              <ul className="space-y-2">
-                {services.map((service) => (
-                  <li key={service.name}>
-                    <button
-                      onClick={() => handleServiceSelect(service)}
-                      className={cn(
-                        "w-full rounded-md p-4 text-left font-semibold transition-colors",
-                        selectedService.name === service.name
-                          ? "bg-primary text-primary-foreground"
-                          : "hover:bg-accent hover:text-accent-foreground"
-                      )}
-                    >
-                      {service.name}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </aside>
-          <main className="lg:col-span-3" ref={mainRef}>
-            <AnimatePresence mode="wait">
-              <ServiceDetail service={selectedService} />
-            </AnimatePresence>
-          </main>
-        </div>
-      </AnimatedSection>
-    </>
-  );
+    return (
+        <>
+            <PageHeader
+                title="事業内容"
+                description="私たちの提供するサービスは、単なるツール導入に留まりません。"
+                imageUrl="/images/page-header-1920x600.png"
+            />
+            <Suspense fallback={<div>Loading...</div>}>
+                <ServiceTabs services={services} />
+            </Suspense>
+        </>
+    );
 }

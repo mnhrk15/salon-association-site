@@ -1,13 +1,5 @@
-"use client";
-
 import { PageHeader } from "@/components/common/PageHeader";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { motion } from "framer-motion";
+import { FaqAccordion } from "./FaqAccordion";
 
 const faqData = [
     {
@@ -47,25 +39,7 @@ export default function FaqPage() {
 
         <section className="py-24 bg-background">
             <div className="container mx-auto max-w-4xl">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 0.8 }}
-                >
-                    <Accordion type="single" collapsible className="w-full">
-                        {faqData.map((faq) => (
-                            <AccordionItem value={faq.question} key={faq.question}>
-                                <AccordionTrigger className="text-left font-semibold text-lg">
-                                    {faq.question}
-                                </AccordionTrigger>
-                                <AccordionContent className="text-muted-foreground leading-relaxed">
-                                    {faq.answer}
-                                </AccordionContent>
-                            </AccordionItem>
-                        ))}
-                    </Accordion>
-                </motion.div>
+                <FaqAccordion data={faqData} />
             </div>
         </section>
     </>
