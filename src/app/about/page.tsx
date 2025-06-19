@@ -21,10 +21,10 @@ const corporateProfile = {
 
 export default function AboutPage() {
     return (
-        <div>
+        <>
             <PageHeader
                 title="協会概要"
-                subtitle="私たちの理念と活動内容をご紹介します。"
+                description="私たちの理念と活動内容をご紹介します。"
                 imageUrl="/images/page-header-1920x600.png"
             />
 
@@ -84,6 +84,6 @@ export default function AboutPage() {
                     </motion.div>
                 </div>
             </section>
-        </div>
+        </>
     );
 }

@@ -3,16 +3,20 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 export function FullWidthCta() {
   return (
-    <section
-      className="relative py-20 md:py-32 bg-cover bg-center bg-fixed"
-      style={{
-        backgroundImage: "url(/images/cta-background-1920x800.png)",
-      }}
-    >
-      <div className="absolute inset-0 bg-black/60" />
+    <section className="relative py-20 md:py-32">
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/images/cta-background-1920x800.png"
+          alt="AI技術のコンセプトを表す抽象的な背景画像"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60" />
+      </div>
       <div className="relative container mx-auto flex flex-col items-center text-center text-white">
         <motion.h2
           className="font-serif text-4xl font-bold leading-tight md:text-5xl lg:text-6xl"

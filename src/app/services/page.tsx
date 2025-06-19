@@ -3,10 +3,12 @@
 import { PageHeader } from "@/components/common/PageHeader";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { AnimatedSection } from "@/components/common/AnimatedSection";
 import { cn } from "@/lib/utils";
 import { Check } from "lucide-react";
+// import type { Service } from "@/lib/plans";
+// import { services } from "@/lib/plans";
 
 // --- Type Definitions for Service Sections ---
 type TextImageSection = {
@@ -212,52 +214,69 @@ const ServiceDetail = ({ service }: { service: Service }) => {
 
 export default function ServicesPage() {
   const [selectedService, setSelectedService] = useState<Service>(services[0]);
+  const mainRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const hash = window.location.hash.substring(1);
+    if (hash) {
+      try {
+        const decodedHash = decodeURIComponent(hash);
+        const serviceFromHash = services.find((s) => s.id === decodedHash);
+        if (serviceFromHash) {
+          setSelectedService(serviceFromHash);
+          setTimeout(() => {
+            mainRef.current?.scrollIntoView({ behavior: "smooth" });
+          }, 100);
+        }
+      } catch (e) {
+        console.error("Failed to decode URI component: ", e);
+      }
+    }
+  }, []);
+
+  const handleServiceSelect = (service: Service) => {
+    setSelectedService(service);
+    window.history.pushState(null, "", `#${service.id}`);
+  };
 
   return (
-    <div>
+    <>
       <PageHeader
         title="サービス内容"
-        subtitle="AIの力で、あなたのサロンを次のステージへ。"
+        description="貴社の課題に合わせた最適なソリューションを提供します。"
         imageUrl="/images/page-header-1920x600.png"
       />
-      <div className="container mx-auto max-w-7xl px-4 py-16 sm:py-24">
-        <div className="grid lg:grid-cols-12 lg:gap-16">
-          <aside className="lg:col-span-3">
-            <nav className="sticky top-24 space-y-2">
-              <h3 className="font-serif text-2xl font-semibold">
-                提供サービス
-              </h3>
-              {services.map((service) => (
-                <button
-                  key={service.name}
-                  onClick={() => setSelectedService(service)}
-                  className={cn(
-                    "relative block w-full rounded-md p-3 text-left transition",
-                    selectedService.name === service.name
-                      ? "bg-gray-100 dark:bg-gray-800"
-                      : "hover:bg-gray-100/50 dark:hover:bg-gray-800/50"
-                  )}
-                >
-                  {selectedService.name === service.name && (
-                    <motion.div
-                      layoutId="active-service-indicator"
-                      className="absolute bottom-0 left-0 top-0 w-1 rounded-full bg-primary"
-                    />
-                  )}
-                  <span className="relative ml-4 font-semibold">
-                    {service.name}
-                  </span>
-                </button>
-              ))}
+
+      <AnimatedSection className="py-24 sm:py-32">
+        <div className="container mx-auto grid max-w-7xl grid-cols-1 gap-12 lg:grid-cols-4">
+          <aside className="lg:col-span-1">
+            <nav className="sticky top-24">
+              <ul className="space-y-2">
+                {services.map((service) => (
+                  <li key={service.name}>
+                    <button
+                      onClick={() => handleServiceSelect(service)}
+                      className={cn(
+                        "w-full rounded-md p-4 text-left font-semibold transition-colors",
+                        selectedService.name === service.name
+                          ? "bg-primary text-primary-foreground"
+                          : "hover:bg-accent hover:text-accent-foreground"
+                      )}
+                    >
+                      {service.name}
+                    </button>
+                  </li>
+                ))}
+              </ul>
             </nav>
           </aside>
-          <main className="mt-12 lg:col-span-9 lg:mt-0">
+          <main className="lg:col-span-3" ref={mainRef}>
             <AnimatePresence mode="wait">
               <ServiceDetail service={selectedService} />
             </AnimatePresence>
           </main>
         </div>
-      </div>
-    </div>
+      </AnimatedSection>
+    </>
   );
 }

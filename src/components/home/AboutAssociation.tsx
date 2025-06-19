@@ -2,6 +2,9 @@
 
 import { AnimatedSection } from "@/components/common/AnimatedSection";
 import { motion, Variants, Easing } from "framer-motion";
+import { Button } from "../ui/button";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -64,6 +67,14 @@ export function AboutAssociation() {
             理美容師のなり手が不足する一方、店舗はオーバーストア状態。
             私たちは、AIとDXの力でこの構造的な課題を解決し、すべてのスタイリストが本業に誇りと喜びを持って集中できる環境を創出。協会サポート店舗の美容師が、平均年収500万円以上を達成する社会の実現を目指します。
           </motion.p>
+          <motion.div className="mt-10" variants={itemVariants}>
+            <Button asChild>
+              <Link href="/about">
+                協会概要を見る
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </motion.div>
         </motion.div>
       </div>
     </AnimatedSection>

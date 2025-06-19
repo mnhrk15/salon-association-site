@@ -1,19 +1,5 @@
 import Link from "next/link";
-
-const NAV_LINKS = [
-  { href: "/", label: "トップ" },
-  { href: "/about", label: "協会概要" },
-  { href: "/services", label: "サービス内容" },
-  { href: "/pricing", label: "料金プラン" },
-  { href: "/news", label: "お知らせ" },
-  { href: "/faq", label: "よくある質問" },
-  { href: "/contact", label: "お問い合わせ" },
-];
-
-const SECONDARY_LINKS = [
-  { href: "/privacy", label: "プライバシーポリシー" },
-  { href: "/terms", label: "利用規約" },
-];
+import { FOOTER_NAV_LINKS, SECONDARY_LINKS, SITE_NAME } from "@/lib/constants";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -24,7 +10,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
             <Link href="/" className="font-bold text-lg">
-              一般社団法人AIビューティーサロン推進協会
+              {SITE_NAME}
             </Link>
             <p className="mt-4 text-sm text-muted-foreground">
               AIの力で、美容業界の未来を共創する。
@@ -39,7 +25,7 @@ export function Footer() {
             <div>
               <p className="font-medium text-foreground">サイトマップ</p>
               <nav className="mt-4 flex flex-col space-y-2">
-                {NAV_LINKS.map(({ href, label }) => (
+                {FOOTER_NAV_LINKS.map(({ href, label }) => (
                   <Link
                     key={href}
                     href={href}
@@ -69,7 +55,7 @@ export function Footer() {
 
         <div className="mt-12 border-t pt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            &copy; {currentYear} 一般社団法人AIビューティーサロン推進協会. All
+            &copy; {currentYear} {SITE_NAME}. All
             Rights Reserved.
           </p>
         </div>

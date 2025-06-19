@@ -7,15 +7,8 @@ import { Button } from "../ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { Menu, Gem } from "lucide-react";
 import { motion } from "framer-motion";
-
-const NAV_LINKS = [
-  { href: "/", label: "トップ" },
-  { href: "/about", label: "協会概要" },
-  { href: "/services", label: "サービス内容" },
-  { href: "/pricing", label: "料金プラン" },
-  { href: "/news", label: "お知らせ" },
-  { href: "/faq", label: "よくある質問" },
-];
+import { useState } from "react";
+import { NAV_LINKS, SITE_NAME } from "@/lib/constants";
 
 const MotionLink = motion(Link);
 
@@ -60,6 +53,8 @@ const DesktopNav = () => (
 
 const MobileNav = () => {
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
+
   const containerVariants = {
     hidden: {},
     visible: {
@@ -74,11 +69,13 @@ const MobileNav = () => {
     visible: { opacity: 1, x: 0 },
   };
 
+  const closeSheet = () => setIsOpen(false);
+
   return (
     <div className="md:hidden">
-      <Sheet>
+      <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger asChild>
-          <Button variant="ghost" size="icon">
+          <Button variant="ghost" size="icon" onClick={() => setIsOpen(true)}>
             <Menu className="h-6 w-6" />
             <span className="sr-only">メニューを開く</span>
           </Button>
@@ -94,9 +91,10 @@ const MobileNav = () => {
               href="/"
               className="mb-4 flex items-center space-x-2"
               variants={itemVariants}
+              onClick={closeSheet}
             >
               <Gem className="h-6 w-6 text-primary" />
-              <span className="font-bold">AIビューティーサロン推進協会</span>
+              <span className="font-bold">{SITE_NAME}</span>
             </MotionLink>
             {NAV_LINKS.map(({ href, label }) => (
               <MotionLink
@@ -107,13 +105,14 @@ const MobileNav = () => {
                   pathname === href ? "text-primary" : "text-muted-foreground"
                 )}
                 variants={itemVariants}
+                onClick={closeSheet}
               >
                 {label}
               </MotionLink>
             ))}
             <motion.div variants={itemVariants}>
               <Button asChild className="w-full">
-                <Link href="/contact">お問い合わせ</Link>
+                <Link href="/contact" onClick={closeSheet}>お問い合わせ</Link>
               </Button>
             </motion.div>
           </motion.nav>
@@ -130,7 +129,7 @@ export function Header() {
         <Link href="/" className="flex items-center space-x-2">
           <Gem className="h-6 w-6 text-primary" />
           <span className="font-bold sm:inline-block">
-            AIビューティーサロン推進協会
+            {SITE_NAME}
           </span>
         </Link>
         <DesktopNav />

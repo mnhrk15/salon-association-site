@@ -1,11 +1,11 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import { AnimatedSection } from "@/components/common/AnimatedSection";
 import { pricingPlans } from "@/lib/plans";
+import { PricingCard } from "@/components/common/PricingCard";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -41,7 +41,7 @@ export function PricingPreview() {
         </div>
         {/* Main 3 Plans */}
         <motion.div
-          className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-8"
+          className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-8 items-stretch"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -51,46 +51,9 @@ export function PricingPreview() {
             <motion.div
               key={plan.name}
               variants={itemVariants}
-              whileHover={{ scale: 1.05, y: -8 }}
-              transition={{ duration: 0.3 }}
-              className={`flex flex-col rounded-2xl p-8 shadow-xl ${
-                plan.isFeatured
-                  ? "border-2 border-primary"
-                  : "border border-gray-200 dark:border-gray-700"
-              } bg-white dark:bg-gray-800`}
+              className="h-full"
             >
-              <h3 className="text-2xl font-semibold leading-8 text-gray-900 dark:text-white">
-                {plan.name}
-              </h3>
-              <p className="mt-4 text-sm leading-6 text-gray-600 dark:text-gray-400">
-                {plan.description}
-              </p>
-              <div className="mt-6 flex items-baseline gap-x-2">
-                <span className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
-                  {plan.price}
-                </span>
-                <span className="text-sm font-semibold leading-6 text-gray-600 dark:text-gray-400">
-                  /月
-                </span>
-              </div>
-              <ul className="mt-8 flex-grow space-y-3 text-sm leading-6 text-gray-600 dark:text-gray-400">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex gap-x-3">
-                    <Check
-                      className="h-6 w-5 flex-none text-primary"
-                      aria-hidden="true"
-                    />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <Button
-                asChild
-                className="mt-8"
-                variant={plan.isFeatured ? "default" : "outline"}
-              >
-                <Link href={plan.href}>{plan.cta}</Link>
-              </Button>
+              <PricingCard plan={plan} />
             </motion.div>
           ))}
         </motion.div>
@@ -103,39 +66,9 @@ export function PricingPreview() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.5 }}
-              whileHover={{ scale: 1.05, y: -8 }}
-              transition={{ duration: 0.3 }}
-              className="flex w-full max-w-md flex-col rounded-2xl p-8 shadow-xl 
-              border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800"
+              className="w-full max-w-md"
             >
-              <h3 className="text-2xl font-semibold leading-8 text-gray-900 dark:text-white">
-                {patronPlan.name}
-              </h3>
-              <p className="mt-4 text-sm leading-6 text-gray-600 dark:text-gray-400">
-                {patronPlan.description}
-              </p>
-              <div className="mt-6 flex items-baseline gap-x-2">
-                <span className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
-                  {patronPlan.price}
-                </span>
-                <span className="text-sm font-semibold leading-6 text-gray-600 dark:text-gray-400">
-                  /月
-                </span>
-              </div>
-              <ul className="mt-8 flex-grow space-y-3 text-sm leading-6 text-gray-600 dark:text-gray-400">
-                {patronPlan.features.map((feature) => (
-                  <li key={feature} className="flex gap-x-3">
-                    <Check
-                      className="h-6 w-5 flex-none text-primary"
-                      aria-hidden="true"
-                    />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <Button asChild className="mt-8" variant="outline">
-                <Link href={patronPlan.href}>{patronPlan.cta}</Link>
-              </Button>
+              <PricingCard plan={patronPlan} />
             </motion.div>
           </div>
         )}

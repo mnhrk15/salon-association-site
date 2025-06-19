@@ -3,10 +3,10 @@ import { ContactForm } from "./ContactForm";
 
 export default function ContactPage() {
     return (
-        <div>
+        <>
             <PageHeader
                 title="お問い合わせ"
-                subtitle="ご相談、ご質問など、お気軽にお問い合わせください。"
+                description="ご相談、ご質問など、お気軽にお問い合わせください。"
                 imageUrl="/images/page-header-1920x600.png"
             />
             <section className="py-24 bg-background">
@@ -14,6 +14,6 @@ export default function ContactPage() {
                     <ContactForm />
                 </div>
             </section>
-        </div>
+        </>
     )
 }

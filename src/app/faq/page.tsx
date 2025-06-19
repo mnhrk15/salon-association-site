@@ -38,10 +38,10 @@ const faqData = [
 
 export default function FaqPage() {
   return (
-    <div>
+    <>
         <PageHeader
             title="よくある質問"
-            subtitle="サービスや協会に関する、よくあるご質問をまとめました。"
+            description="サービスや協会に関する、よくあるご質問をまとめました。"
             imageUrl="/images/page-header-1920x600.png"
         />
 
@@ -54,8 +54,8 @@ export default function FaqPage() {
                     transition={{ duration: 0.8 }}
                 >
                     <Accordion type="single" collapsible className="w-full">
-                        {faqData.map((faq, index) => (
-                            <AccordionItem value={`item-${index}`} key={index}>
+                        {faqData.map((faq) => (
+                            <AccordionItem value={faq.question} key={faq.question}>
                                 <AccordionTrigger className="text-left font-semibold text-lg">
                                     {faq.question}
                                 </AccordionTrigger>
@@ -68,6 +68,6 @@ export default function FaqPage() {
                 </motion.div>
             </div>
         </section>
-    </div>
+    </>
   );
 }

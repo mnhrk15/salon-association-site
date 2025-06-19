@@ -17,10 +17,10 @@ const diamondPlan = pricingPlans.find(plan => plan.name === 'ダイヤモンド�
 
 export default function SpecialPlanPage() {
     return (
-        <div>
+        <>
             <PageHeader
                 title="特別プランのご案内"
-                subtitle="活動協力店舗様・サイバーアクセルご契約店舗様向けの特別なご案内です。"
+                description="活動協力店舗様・サイバーアクセルご契約店舗様向けの特別なご案内です。"
                 imageUrl="/images/page-header-1920x600.png"
             />
              <section className="py-24 bg-background">
@@ -82,6 +82,6 @@ export default function SpecialPlanPage() {
                     </div>
                 </div>
             </section>
-        </div>
+        </>
     )
 }

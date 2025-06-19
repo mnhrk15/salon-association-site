@@ -32,10 +32,10 @@ export default async function PostPage({ params }: Props) {
   }
 
   return (
-    <div>
+    <>
         <PageHeader 
             title={post.title}
-            subtitle={`公開日: ${post.date}`}
+            description={`公開日: ${post.date}`}
             imageUrl={post.coverImage || "/images/page-header-1920x600.png"}
         />
       <div className="container mx-auto px-6 max-w-4xl py-24">
@@ -43,6 +43,6 @@ export default async function PostPage({ params }: Props) {
           <div dangerouslySetInnerHTML={{ __html: post.contentHtml || '' }} />
         </article>
       </div>
-    </div>
+    </>
   );
 } 

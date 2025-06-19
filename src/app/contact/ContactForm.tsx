@@ -96,7 +96,7 @@ export function ContactForm() {
               <FormItem>
                 <FormLabel>電話番号</FormLabel>
                 <FormControl>
-                  <Input placeholder="例）090-1234-5678" {...field} />
+                  <Input placeholder="例）090-1234-5678" type="tel" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

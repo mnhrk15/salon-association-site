@@ -14,9 +14,9 @@ const ebGaramond = EB_Garamond({
 });
 
 const notoSansJp = Noto_Sans_JP({
-  subsets: ["latin"],
   variable: "--font-noto-sans-jp",
   weight: ["400", "700"],
+  subsets: ["cyrillic"],
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
@@ -72,7 +72,7 @@ export default function RootLayout({
     <html lang="ja">
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-background font-sans antialiased flex flex-col",
           ebGaramond.variable,
           notoSansJp.variable
         )}

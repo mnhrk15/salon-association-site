@@ -1,6 +1,7 @@
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { authenticate } from '@/app/special-plan/actions';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -21,7 +22,7 @@ function SubmitButton() {
 }
 
 export default function SpecialPlanAuthPage() {
-  const [state, dispatch] = useFormState(authenticate, { success: false, error: undefined });
+  const [state, dispatch] = useActionState(authenticate, { success: false, error: undefined });
   const router = useRouter();
 
   useEffect(() => {

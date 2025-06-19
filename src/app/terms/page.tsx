@@ -2,10 +2,10 @@ import { PageHeader } from "@/components/common/PageHeader";
 
 export default function TermsPage() {
     return (
-        <div>
+        <>
             <PageHeader
                 title="利用規約"
-                subtitle="本サービスの利用に関する規約"
+                description="本サービスの利用に関する規約"
                 imageUrl="/images/page-header-1920x600.png"
             />
             <section className="py-24 bg-background">
@@ -55,6 +55,6 @@ export default function TermsPage() {
                     </div>
                 </div>
             </section>
-        </div>
+        </>
     )
 }

@@ -35,10 +35,10 @@ export default function NewsPage() {
     const allPosts = getSortedPostsData();
 
     return (
-        <div>
+        <>
             <PageHeader
                 title="お知らせ"
-                subtitle="協会からの最新情報をお届けします。"
+                description="協会からの最新情報をお届けします。"
                 imageUrl="/images/page-header-1920x600.png"
             />
             <section className="bg-background py-24">
@@ -51,6 +51,6 @@ export default function NewsPage() {
                 </div>
              </section>
             <FullWidthCta />
-        </div>
+        </>
     );
 }

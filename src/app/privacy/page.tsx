@@ -3,10 +3,10 @@ import Link from "next/link";
 
 export default function PrivacyPolicyPage() {
     return (
-        <div>
+        <>
             <PageHeader
                 title="プライバシーポリシー"
-                subtitle="当協会の個人情報保護方針について"
+                description="当協会の個人情報保護方針について"
                 imageUrl="/images/page-header-1920x600.png"
             />
             <section className="py-24 bg-background">
@@ -62,6 +62,6 @@ export default function PrivacyPolicyPage() {
                     </div>
                 </div>
             </section>
-        </div>
+        </>
     )
 }

@@ -66,9 +66,8 @@ export function Hero() {
 
           <motion.div
             variants={itemVariants}
-            className="mt-8 flex items-center justify-center gap-4 lg:justify-start"
+            className="mt-8"
           >
-            <hr className="w-12 border-gray-400" />
             <p className="text-sm text-gray-500 dark:text-gray-400">
               AIとDXの力で、スタイリストが本業に集中できる環境を創出
             </p>
@@ -93,7 +92,7 @@ export function Hero() {
       >
         <Image
           src="/images/hero-background.png"
-          alt="サロンの背景画像"
+          alt="モダンで清潔感のある美容サロンの内装"
           fill
           className="object-cover"
           priority

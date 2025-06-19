@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 
 interface PageHeaderProps {
   title: string;
-  subtitle: string;
+  description: string;
   imageUrl: string;
 }
 
-export function PageHeader({ title, subtitle, imageUrl }: PageHeaderProps) {
+export function PageHeader({ title, description, imageUrl }: PageHeaderProps) {
   return (
     <section className="relative h-80 w-full overflow-hidden">
       <div
@@ -31,7 +31,7 @@ export function PageHeader({ title, subtitle, imageUrl }: PageHeaderProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         >
-          {subtitle}
+          {description}
         </motion.p>
       </div>
     </section>

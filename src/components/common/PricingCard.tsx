@@ -22,7 +22,7 @@ type PricingCardProps = {
 export function PricingCard({ plan }: PricingCardProps) {
   return (
     <motion.div
-      whileHover={{ y: -8 }}
+      whileHover={{ y: -8, scale: 1.05 }}
       transition={{ type: "spring", stiffness: 300 }}
       className="h-full"
     >

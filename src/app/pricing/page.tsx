@@ -8,10 +8,10 @@ import { AlertTriangle } from "lucide-react";
 
 export default function PricingPage() {
     return(
-        <div>
+        <>
             <PageHeader
                 title="料金プラン"
-                subtitle="お客様のサロンの規模とニーズに合わせた、最適なプランをご提案します。"
+                description="お客様のサロンの規模とニーズに合わせた、最適なプランをご提案します。"
                 imageUrl="/images/page-header-1920x600.png"
             />
             
@@ -51,6 +51,6 @@ export default function PricingPage() {
                     </motion.div>
                 </div>
             </section>
-        </div>
+        </>
     )
 }
