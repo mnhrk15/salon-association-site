@@ -4,7 +4,7 @@ import { PageHeader } from "@/components/common/PageHeader";
 import { ArticleJsonLd } from '@/components/seo/JsonLd';
 
 type Props = {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 };
 
 export async function generateStaticParams() {
@@ -24,8 +24,8 @@ export async function generateMetadata({ params }: Props) {
     };
 }
 
-export default async function PostPage({ params }: { params: { slug: string }}) {
-  const { slug } = params;
+export default async function PostPage({ params }: Props) {
+  const { slug } = await params;
   const post = await getPostData(slug);
 
   if (!post) {
