@@ -1,9 +1,10 @@
 import { getPostData, getAllPostSlugs } from '@/lib/news';
 import { notFound } from 'next/navigation';
 import { PageHeader } from "@/components/common/PageHeader";
+import { ArticleJsonLd } from '@/components/seo/JsonLd';
 
 type Props = {
-    params: Promise<{ slug: string }>;
+    params: { slug: string };
 };
 
 export async function generateStaticParams() {
@@ -23,16 +24,25 @@ export async function generateMetadata({ params }: Props) {
     };
 }
 
-export default async function PostPage({ params }: Props) {
-  const { slug } = await params;
+export default async function PostPage({ params }: { params: { slug: string }}) {
+  const { slug } = params;
   const post = await getPostData(slug);
 
   if (!post) {
     notFound();
   }
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || '';
+
   return (
     <>
+        <ArticleJsonLd
+            url={`${siteUrl}/news/${post.slug}`}
+            title={post.title}
+            description={post.excerpt}
+            publishedDate={post.date}
+            imageUrl={post.coverImage ? `${siteUrl}${post.coverImage}` : undefined}
+        />
         <PageHeader 
             title={post.title}
             description={`公開日: ${post.date}`}
