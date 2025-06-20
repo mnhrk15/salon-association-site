@@ -9,11 +9,18 @@ import {
   } from "@/components/ui/table";
 import { Card } from "@/components/ui/card";
 import { pricingPlans } from "@/lib/plans";
-import { AlertTriangle } from "lucide-react";
+import { Notice } from "@/components/common/Notice";
 
 // 通常プランからダイヤモンド会員を除外し、特別プランの対象を定義
 const specialPlans = pricingPlans.filter(plan => plan.name !== '賛助会員' && plan.name !== 'ダイヤモンド会員');
 const diamondPlan = pricingPlans.find(plan => plan.name === 'ダイヤモンド会員');
+
+const noticeItems = [
+    "表示価格はすべて税抜き価格です。別途消費税がかかります。",
+    "1店舗あたりスタッフ10名までを「1店舗」としてカウントします。",
+    "スタッフが11名以上になる場合、超過10名ごとに「＋1店舗」として追加計算されます。",
+    "契約外での不正活用が発覚した場合、契約開始から1店舗または1名ごとに月額50,000円を請求致します。",
+];
 
 export default function SpecialPlanPage() {
     return (
@@ -62,24 +69,12 @@ export default function SpecialPlanPage() {
                         </Table>
                     </Card>
 
-                    <div className="bg-blue-50 border-l-4 border-blue-400 p-6 rounded-r-lg dark:bg-blue-900/20 dark:border-blue-500">
-                        <div className="flex">
-                        <div className="flex-shrink-0">
-                            <AlertTriangle className="h-5 w-5 text-blue-400 dark:text-blue-500" aria-hidden="true" />
-                        </div>
-                        <div className="ml-3">
-                            <h3 className="text-lg font-medium text-blue-800 dark:text-blue-200">注意事項</h3>
-                            <div className="mt-2 text-sm text-blue-700 dark:text-blue-300">
-                            <ul className="list-disc space-y-2 pl-5">
-                                <li>表示価格はすべて税抜き価格です。別途消費税がかかります。</li>
-                                <li>1店舗あたりスタッフ10名までを「1店舗」としてカウントします。</li>
-                                <li>スタッフが11名以上になる場合、超過10名ごとに「＋1店舗」として追加計算されます。</li>
-                                <li>契約外での不正活用が発覚した場合、契約開始から1店舗または1名ごとに月額50,000円を請求致します。</li>
-                            </ul>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
+                    <Notice 
+                        title="注意事項"
+                        items={noticeItems}
+                        variant="info"
+                        className="!mx-0"
+                    />
                 </div>
             </section>
         </>

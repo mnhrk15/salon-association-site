@@ -1,8 +1,14 @@
 import { PageHeader } from "@/components/common/PageHeader";
 import { PricingCard } from "@/components/common/PricingCard";
 import { pricingPlans } from "@/lib/plans";
-import { AlertTriangle } from "lucide-react";
-import { AnimatedSection } from "@/components/common/AnimatedSection";
+import { Notice } from "@/components/common/Notice";
+
+const noticeItems = [
+    "表示価格はすべて税抜き価格です。別途消費税がかかります。",
+    "1店舗あたりスタッフ10名までを「1店舗」としてカウントします。",
+    "スタッフが11名以上になる場合、超過10名ごとに「＋1店舗」として追加計算されます。",
+    "契約外での不正活用が発覚した場合、契約開始から1店舗または1名ごとに月額50,000円を請求致します。",
+]
 
 export default function PricingPage() {
     return(
@@ -21,28 +27,11 @@ export default function PricingPage() {
                         ))}
                     </div>
 
-                    <AnimatedSection
-                        className="max-w-4xl mx-auto"
-                    >
-                        <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-lg dark:bg-yellow-900/20 dark:border-yellow-500">
-                          <div className="flex">
-                            <div className="flex-shrink-0">
-                              <AlertTriangle className="h-5 w-5 text-yellow-400 dark:text-yellow-500" aria-hidden="true" />
-                            </div>
-                            <div className="ml-3">
-                              <h3 className="text-lg font-medium text-yellow-800 dark:text-yellow-200">ご契約前の注意事項</h3>
-                              <div className="mt-2 text-sm text-yellow-700 dark:text-yellow-300">
-                                <ul className="list-disc space-y-2 pl-5">
-                                    <li>表示価格はすべて税抜き価格です。別途消費税がかかります。</li>
-                                    <li>1店舗あたりスタッフ10名までを「1店舗」としてカウントします。</li>
-                                    <li>スタッフが11名以上になる場合、超過10名ごとに「＋1店舗」として追加計算されます。</li>
-                                    <li>契約外での不正活用が発覚した場合、契約開始から1店舗または1名ごとに月額50,000円を請求致します。</li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                    </AnimatedSection>
+                    <Notice 
+                        title="ご契約前の注意事項"
+                        items={noticeItems}
+                        variant="warning"
+                    />
                 </div>
             </section>
         </>
