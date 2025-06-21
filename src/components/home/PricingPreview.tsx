@@ -32,16 +32,16 @@ export function PricingPreview() {
     <AnimatedSection className="py-16 sm:py-24 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl font-serif">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl lg:text-4xl font-serif">
             料金プラン
           </h2>
-          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
+          <p className="mt-4 text-base sm:text-lg text-gray-600 dark:text-gray-300 px-2 sm:px-0">
             あなたのサロンの規模とニーズに合わせた、最適なプランをご提案します。
           </p>
         </div>
         {/* Main 3 Plans */}
         <motion.div
-          className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-8 items-stretch"
+          className="mt-12 sm:mt-16 grid grid-cols-1 gap-8 sm:gap-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 items-stretch max-w-5xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -60,7 +60,7 @@ export function PricingPreview() {
 
         {/* Patron Plan */}
         {patronPlan && (
-          <div className="mt-12 flex justify-center">
+          <div className="mt-8 sm:mt-12 flex justify-center">
             <motion.div
               variants={itemVariants}
               initial="hidden"
@@ -78,9 +78,9 @@ export function PricingPreview() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
-          className="mt-16 text-center"
+          className="mt-12 sm:mt-16 text-center"
         >
-          <Button asChild size="lg">
+          <Button asChild size="lg" className="touch-target w-full sm:w-auto">
             <Link href="/pricing">全てのプランを見る →</Link>
           </Button>
         </motion.div>

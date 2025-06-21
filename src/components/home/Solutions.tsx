@@ -66,10 +66,10 @@ const imageVariants: Variants = {
 
 export function Solutions() {
   return (
-    <AnimatedSection className="py-24 sm:py-32 overflow-hidden">
+    <AnimatedSection className="py-16 sm:py-24 lg:py-32 overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
-          className="space-y-20 sm:space-y-32"
+          className="space-y-16 sm:space-y-24 lg:space-y-32"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
@@ -79,36 +79,38 @@ export function Solutions() {
             <motion.div
               key={solution.title}
               variants={itemVariants}
-              className={`relative flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16 ${
-                index % 2 === 1 ? "md:flex-row-reverse" : ""
+              className={`relative flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-16 ${
+                index % 2 === 1 ? "lg:flex-row-reverse" : ""
               }`}
             >
               {/* Image */}
-              <motion.div className="w-full md:w-1/2 lg:w-3/5" variants={imageVariants}>
-                <Image
-                  src={solution.imageUrl}
-                  alt={solution.title}
-                  width={1200}
-                  height={600}
-                  className="rounded-lg object-cover shadow-xl"
-                />
+              <motion.div className="w-full lg:w-1/2 xl:w-3/5" variants={imageVariants}>
+                <div className="relative aspect-[16/10] sm:aspect-[16/9] lg:aspect-[2/1] overflow-hidden rounded-lg">
+                  <Image
+                    src={solution.imageUrl}
+                    alt={solution.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, (max-width: 1536px) 50vw, 800px"
+                    className="object-cover shadow-xl"
+                  />
+                </div>
               </motion.div>
 
               {/* Text Content */}
               <motion.div 
-                className="w-full md:w-1/2 lg:w-2/5 flex-shrink-0"
+                className="w-full lg:w-1/2 xl:w-2/5 flex-shrink-0 text-center lg:text-left"
                 variants={itemVariants}
               >
-                <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl font-serif">
+                <h2 className="mt-0 text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl lg:text-4xl font-serif">
                   {solution.title}
                 </h2>
-                <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
+                <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-gray-600 dark:text-gray-300">
                   {solution.description}
                 </p>
-                <div className="mt-8">
+                <div className="mt-6 sm:mt-8">
                   <Link
                     href={solution.link}
-                    className="inline-flex items-center font-semibold text-primary hover:text-primary/80 transition-colors"
+                    className="inline-flex items-center font-semibold text-primary hover:text-primary/80 transition-colors touch-target justify-center lg:justify-start"
                   >
                     詳しく見る
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -116,10 +118,10 @@ export function Solutions() {
                 </div>
               </motion.div>
               
-              {/* Vertical Label */}
+              {/* Vertical Label - Hidden on mobile */}
               <motion.div
                 variants={itemVariants}
-                className={`hidden lg:block absolute top-1/2 -translate-y-1/2 ${
+                className={`hidden xl:block absolute top-1/2 -translate-y-1/2 ${
                   index % 2 === 1
                     ? "left-0 -translate-x-full"
                     : "right-0 translate-x-full"

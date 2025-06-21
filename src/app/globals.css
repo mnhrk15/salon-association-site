@@ -120,3 +120,34 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Mobile optimizations */
+@layer utilities {
+  /* Better touch targets */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+  
+  /* Smooth scrolling for mobile */
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Prevent horizontal scroll on mobile */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Better tap highlight */
+  a, button {
+    -webkit-tap-highlight-color: rgba(229, 107, 139, 0.2);
+  }
+  
+  /* Optimize font sizes for mobile readability */
+  @media (max-width: 640px) {
+    html {
+      font-size: 16px;
+    }
+  }
+}

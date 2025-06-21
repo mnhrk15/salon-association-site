@@ -36,7 +36,7 @@ export function Hero() {
 
   return (
     <section className="flex min-h-[calc(100vh-4rem)] w-full items-center bg-white dark:bg-black">
-      <div className="container mx-auto grid grid-cols-1 items-center gap-y-12 px-4 py-16 lg:grid-cols-10 lg:gap-x-8">
+      <div className="container mx-auto grid grid-cols-1 items-center gap-y-8 px-4 py-12 sm:py-16 lg:grid-cols-10 lg:gap-x-8 lg:gap-y-12">
         {/* Left: Text Content */}
         <motion.div
           className="order-last z-20 text-center lg:order-first lg:col-span-4 lg:text-left"
@@ -51,7 +51,7 @@ export function Hero() {
             >
               Ai Beauty Promotion Association
             </motion.p>
-            <h1 className="font-serif text-8xl font-medium leading-tight text-gray-800 dark:text-gray-100 lg:text-9xl">
+            <h1 className="font-serif text-5xl font-medium leading-tight text-gray-800 dark:text-gray-100 sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
               <motion.span variants={itemVariants} className="block">
                 Achieve
               </motion.span>
@@ -66,15 +66,15 @@ export function Hero() {
 
           <motion.div
             variants={itemVariants}
-            className="mt-8"
+            className="mt-6 sm:mt-8"
           >
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-gray-500 dark:text-gray-400 sm:text-base max-w-md mx-auto lg:mx-0">
               AIとDXの力で、スタイリストが本業に集中できる環境を創出
             </p>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="mt-10">
-            <Button asChild size="lg">
+          <motion.div variants={itemVariants} className="mt-8 sm:mt-10">
+            <Button asChild size="lg" className="touch-target w-full sm:w-auto">
               <Link href="/contact">
                 お問い合わせ
                 <ChevronRight className="ml-2 h-4 w-4" />
@@ -85,7 +85,7 @@ export function Hero() {
 
         {/* Right: Image */}
       <motion.div
-          className="relative order-first z-10 h-[60vh] w-full lg:order-last lg:col-span-6 lg:h-[85vh]"
+          className="relative order-first z-10 h-[40vh] w-full sm:h-[50vh] lg:order-last lg:col-span-6 lg:h-[85vh] rounded-lg overflow-hidden"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
@@ -96,6 +96,7 @@ export function Hero() {
           fill
           className="object-cover"
           priority
+          sizes="(max-width: 1024px) 100vw, 60vw"
         />
         </motion.div>
       </div>

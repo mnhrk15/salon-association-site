@@ -75,34 +75,39 @@ const MobileNav = () => {
     <div className="md:hidden">
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger asChild>
-          <Button variant="ghost" size="icon" onClick={() => setIsOpen(true)}>
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={() => setIsOpen(true)}
+            className="touch-target"
+          >
             <Menu className="h-6 w-6" />
             <span className="sr-only">メニューを開く</span>
           </Button>
         </SheetTrigger>
-        <SheetContent side="right">
+        <SheetContent side="right" className="w-[280px] sm:w-[320px]">
           <motion.nav
-            className="flex flex-col gap-y-6 pt-6"
+            className="flex flex-col gap-y-4 pt-6"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
             <MotionLink
               href="/"
-              className="mb-4 flex items-center space-x-2"
+              className="mb-4 flex items-center space-x-2 touch-target"
               variants={itemVariants}
               onClick={closeSheet}
             >
               <Gem className="h-6 w-6 text-primary" />
-              <span className="font-bold">{SITE_NAME}</span>
+              <span className="font-bold text-lg">{SITE_NAME}</span>
             </MotionLink>
             {NAV_LINKS.map(({ href, label }) => (
               <MotionLink
                 key={href}
                 href={href}
                 className={cn(
-                  "text-lg font-semibold transition-colors hover:text-primary",
-                  pathname === href ? "text-primary" : "text-muted-foreground"
+                  "flex items-center py-3 px-2 text-base font-medium transition-colors hover:text-primary hover:bg-accent/50 rounded-md touch-target",
+                  pathname === href ? "text-primary bg-accent" : "text-muted-foreground"
                 )}
                 variants={itemVariants}
                 onClick={closeSheet}
@@ -110,8 +115,8 @@ const MobileNav = () => {
                 {label}
               </MotionLink>
             ))}
-            <motion.div variants={itemVariants}>
-              <Button asChild className="w-full">
+            <motion.div variants={itemVariants} className="mt-4">
+              <Button asChild className="w-full touch-target">
                 <Link href="/contact" onClick={closeSheet}>お問い合わせ</Link>
               </Button>
             </motion.div>
@@ -125,11 +130,12 @@ const MobileNav = () => {
 export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2">
-          <Gem className="h-6 w-6 text-primary" />
-          <span className="font-bold sm:inline-block">
-            {SITE_NAME}
+      <div className="container flex h-14 sm:h-16 max-w-screen-2xl items-center justify-between px-4 sm:px-6">
+        <Link href="/" className="flex items-center space-x-2 touch-target">
+          <Gem className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+          <span className="font-bold text-base sm:text-lg">
+            <span className="hidden sm:inline">{SITE_NAME}</span>
+            <span className="sm:hidden">ABPA</span>
           </span>
         </Link>
         <DesktopNav />
