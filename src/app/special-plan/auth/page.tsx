@@ -9,8 +9,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { AlertTriangle } from 'lucide-react';
-import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 function SubmitButton() {
     const { pending } = useFormStatus();
@@ -22,14 +22,14 @@ function SubmitButton() {
 }
 
 export default function SpecialPlanAuthPage() {
-  const [state, dispatch] = useActionState(authenticate, { success: false, error: undefined });
   const router = useRouter();
+  const [state, dispatch] = useActionState(authenticate, { success: false, error: undefined });
 
   useEffect(() => {
-    if (state?.success) {
-      router.push('/special-plan');
+    if (state.success) {
+      router.refresh();
     }
-  }, [state, router]);
+  }, [state.success, router]);
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
