@@ -17,10 +17,12 @@ import { Textarea } from "@/components/ui/textarea";
 import { sendEmail } from "./actions";
 import { toast } from "sonner";
 import { contactFormSchema } from "@/lib/schema";
+import { Loader2 } from "lucide-react";
 
 export function ContactForm() {
   const form = useForm<z.infer<typeof contactFormSchema>>({
     resolver: zodResolver(contactFormSchema),
+    mode: "onBlur",
     defaultValues: {
       company: "",
       name: "",
@@ -39,10 +41,12 @@ export function ContactForm() {
       if (typeof result.error === 'string') {
         toast.error(result.error);
       } else {
-        toast.error("入力内容に誤りがあります。");
+        toast.error("送信に失敗しました。時間をおいて再度お試しください。");
       }
     }
   }
+
+  const { isSubmitting } = form.formState;
 
   return (
     <Form {...form}>
@@ -121,8 +125,11 @@ export function ContactForm() {
           )}
         />
         <div className="flex justify-end">
-          <Button type="submit" disabled={form.formState.isSubmitting}>
-              {form.formState.isSubmitting ? "送信中..." : "送信する"}
+          <Button type="submit" disabled={isSubmitting}>
+            {isSubmitting && (
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            )}
+            送信する
           </Button>
         </div>
       </form>
