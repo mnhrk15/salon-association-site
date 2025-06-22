@@ -4,7 +4,12 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "../ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "../ui/sheet";
 import { Menu, Gem } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -86,6 +91,7 @@ const MobileNav = () => {
           </Button>
         </SheetTrigger>
         <SheetContent side="right" className="w-[280px] sm:w-[320px]">
+          <SheetTitle className="sr-only">モバイルメニュー</SheetTitle>
           <motion.nav
             className="flex flex-col gap-y-4 pt-6"
             variants={containerVariants}
