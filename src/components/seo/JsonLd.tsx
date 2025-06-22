@@ -33,7 +33,7 @@ export function OrganizationJsonLd() {
       "addressCountry": "JP",
       "addressLocality": "東京都"
     },
-    "foundingDate": "2024",
+    "foundingDate": "2025",
     "keywords": ["AI", "美容サロン", "経営効率化", "集客", "リピート率向上", "採用"],
     "sameAs": [
       "https://twitter.com/ai_beauty_salon",
