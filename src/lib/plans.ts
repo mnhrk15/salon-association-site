@@ -61,7 +61,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     name: "賛助会員",
     price: "9800",
-    priceAnnotation: "円/月 (1口)",
+    priceAnnotation: "円/1口",
     description: "個人として協会の活動を支援したい方へ",
     features: [
       "シークレット特典あり",
