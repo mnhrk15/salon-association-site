@@ -153,6 +153,7 @@ export function ServiceTabs({ services }: { services: Service[] }) {
     const sectionRef = useRef<HTMLElement>(null);
     const initialServiceId = searchParams.get('tab');
     const isDesktop = useMediaQuery("(min-width: 768px)");
+    const [mounted, setMounted] = useState(false);
 
     const getInitialService = () => {
         if (initialServiceId) {
@@ -162,6 +163,10 @@ export function ServiceTabs({ services }: { services: Service[] }) {
     }
 
     const [selectedService, setSelectedService] = useState<Service>(getInitialService);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     useEffect(() => {
         const serviceFromUrl = services.find(s => s.id === initialServiceId);
@@ -198,7 +203,9 @@ export function ServiceTabs({ services }: { services: Service[] }) {
                     </p>
                 </AnimatedSection>
 
-                {isDesktop ? (
+                {!mounted ? (
+                    <ServiceTabsMobile services={services} defaultTab={initialServiceId || undefined} />
+                ) : isDesktop ? (
                     <ServiceTabsDesktop 
                       services={services} 
                       selectedService={selectedService}

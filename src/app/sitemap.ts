@@ -1,5 +1,4 @@
 import { MetadataRoute } from 'next';
-import { getSortedPostsData } from '@/lib/news';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // 環境変数からサイトのURLを取得。設定されていない場合は仮のURLを使用。
@@ -12,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/about',
     '/services',
     '/pricing',
-    '/news',
+    '/apps',
     '/faq',
     '/contact',
     '/privacy',
@@ -22,12 +21,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date().toISOString(),
   }));
 
-  // お知らせ記事の動的ルート
-  const posts = getSortedPostsData();
-  const postRoutes = posts.map((post) => ({
-    url: `${siteUrl}/news/${post.slug}`,
-    lastModified: new Date(post.date).toISOString(),
-  }));
-
-  return [...staticRoutes, ...postRoutes];
+  return staticRoutes;
 } 

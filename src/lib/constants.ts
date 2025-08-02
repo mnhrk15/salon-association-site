@@ -15,7 +15,7 @@ export const NAV_LINKS = [
   { href: "/about", label: "協会概要" },
   { href: "/services", label: "サービス内容" },
   { href: "/pricing", label: "料金プラン" },
-  { href: "/news", label: "お知らせ" },
+  { href: "/apps", label: "アプリ紹介" },
   { href: "/faq", label: "よくある質問" },
 ];
 
