@@ -76,6 +76,7 @@ export default function RootLayout({
           ebGaramond.variable,
           notoSansJp.variable
         )}
+        suppressHydrationWarning={true}
       >
         <OrganizationJsonLd />
         <WebsiteJsonLd />
