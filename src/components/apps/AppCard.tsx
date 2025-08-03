@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
@@ -26,10 +26,17 @@ import { type App } from "@/lib/data/apps-data";
 type AppCardProps = {
   app: App;
   index: number;
+  autoOpen?: boolean;
 };
 
-export function AppCard({ app, index }: AppCardProps) {
+export function AppCard({ app, index, autoOpen = false }: AppCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    if (autoOpen) {
+      setIsModalOpen(true);
+    }
+  }, [autoOpen]);
 
   // 特徴タグを抽出（最初の3つまで）
   const featureTags = app.features?.slice(0, 3) || [];

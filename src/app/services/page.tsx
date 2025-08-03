@@ -1,7 +1,8 @@
 import { PageHeader } from "@/components/common/PageHeader";
-import { ServiceTabs } from "./ServiceTabs";
+import { ServiceSolutionTabs } from "./ServiceSolutionTabs";
 import { Suspense } from "react";
 import { services } from "@/lib/data/services-data";
+import { APPS_DATA as apps } from "@/lib/data/apps-data";
 
 export default function ServicesPage() {
     return (
@@ -12,7 +13,7 @@ export default function ServicesPage() {
                 imageUrl="/images/page-header-1920x600.png"
             />
             <Suspense fallback={<div>Loading...</div>}>
-                <ServiceTabs services={services} />
+                <ServiceSolutionTabs services={services} apps={apps} />
             </Suspense>
         </>
     );
